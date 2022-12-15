@@ -1,38 +1,311 @@
-.App {
+* {
+  font-family: monospace;
+  color:rgb(255, 255, 255);
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 150px;
+  padding-bottom: 25px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  margin-top: 0;
+}
+
+h1:hover, #ProjectsHeading h1:hover {
+  animation: swinging 4s infinite;
+}
+
+@keyframes swinging {
+  0% { transform: rotate(15deg); }
+  25% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+  75% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+.one {
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 100%;
+  color: white;
+  background-image: linear-gradient(transparent, rgb(66, 65, 65)), url(./images/coding.jpg);
+  /* background-color: rgb(49, 49, 49); */
+}
+
+.two, .ProjectsPage {
+  /* background-color: rgb(112, 153, 112); */
+  text-align: center;
+  background-color: rgb(49, 49, 49);
+  /* background-color: antiquewhite; */
+}
+
+.three, .AboutContent {
+  background-image: linear-gradient(rgba(67, 67, 67, 0.7), rgba(67, 67, 67, 0.7)), url(./images/IMG_0634.jpeg);
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.four, .ContactContent {
+  background-color: rgb(49, 49, 49);
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.ProjectsPage {
+  height: 100vh;
+}
+
+.Projects {
+  display: flex;
+  justify-content: space-evenly;
+  /* margin-top: 10%; */
+  text-align: center;
+  height: 60%;
+  padding-bottom: 50px;
+  /* max-width: fit-content; */
+}
+
+.Snake, .Currency, .Website {
+  background-color: rgb(49, 49, 49);
+  border: 5px solid rgb(36, 36, 36);
+  border-radius: 20px;
+  margin: 5%;
+  max-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: all 1s;
+}
+
+.Snake:hover, .Currency:hover, .Website:hover {
+  border: 5px solid rgb(27, 27, 27);
+  background-color: rgb(37, 37, 37);
+  animation: tilt-shaking 0.3s infinite;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.Projects img {
+  width: 100%;
+  height: 100%;
+}
+
+.Projects img:hover {
+  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.50));
+
+}
+
+#CurrencyImage, #WebsiteImage, #SnakeImage {
+  margin: 15px;
+}
+
+.ContactContent {
+  width: 90%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-input {
+  width: 50%;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input, textarea {
+  color: black;
+}
+
+.Navbar {
+  list-style-type: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  left: 20px;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  z-index: 2;
+  border-radius: 30px / 30px;
+  font-weight: bold;
+}
+
+.Navbar a:hover {
+  background: rgba(195, 195, 195, 0.6);
+  border-radius: 30px;
+  color: rgb(0, 0, 0);
+}
+
+.Navbar a:visited:hover {
+  color:black;
+}
+
+.Navbar a:visited {
+  color: rgb(255, 255, 255);
+}
+
+.Navbar a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 30px;
+  margin-left: 30px;
+  color: rgb(255, 255, 255);
+  transition: background 1s, color 1s;
+}
+
+.Navbar .Name {
+  left: 0;
+  position: fixed;
+  padding-left: 45px;
+}
+
+.links {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.HomeCircle {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.HomeCircle img {
+  width: 25%;
+  min-width: 300px;
+  border-radius: 400px;
+  border: 10px solid rgb(153, 153, 153);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  
+}
+
+.HomeCircle img:hover {
+  animation: tilt-shaking 0.3s infinite;
+}
+
+.AboutCircle img {
+  border-radius: 400px;
+  border: 10px solid rgb(179, 179, 179);
+  border-style: double;
+  width: 50%;
+  min-width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;}
+
+.AboutContent {
+  height: 90%;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.AboutCircle {
+  float: left;
+  width:min-content;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#ContentBody {
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 70%;
+}
+
+.HomeContent {
+  width: 90%;
+}
+
+.HomeContent h1 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  background: rgba(24, 24, 24, 0.5);
+  display: flex;
+  /* border: 2px solid black; */
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 120px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Sitemap {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  list-style-type: none;
+  width: fit-content;
+  padding-right: 200px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  padding-bottom: 18px;
+}
+.Sitemap li {
+  padding: 3px;
+}
+
+.website-id {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+  padding-right: 18px;
+  align-items: center;
+}
+
+.website-id p, .website-id a {
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+#typing-home {
+  font-size: 30px;
+  padding-top: 100px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.typing-contact {
+  font-size: 20px;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.ContactContent {
+  width: 100vw;
+  height: 100vh;
+  /* border: 2px solid black; */
 }
