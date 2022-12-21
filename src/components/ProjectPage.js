@@ -14,19 +14,19 @@ const ProjectsPage = () => {
             <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1}>
                     <MouseParallaxChild factorX={0.1} factorY={0.1}>
             <div class='Projects'>
-                <a href="https://www.github.com/" target="_blank" rel="noreferrer">
+                <a href="https://github.com/shinymcshine09/my-app.git" target="_blank" rel="noopener noreferrer">
                     <div className="Website">
                         <Zoom>
                         <div id="WebsiteImage">
                             <img src={require('../images/coding.png')} alt="WebsiteIcon"/>
                         </div>
-                        <h4 id="ProjectID">Website Code</h4>
+                        <h4 id="ProjectID">My Website Code</h4>
                         </Zoom>
                         <br />
                     </div>
                 </a>
 
-                <a href="https://github.com/shinymcshine09/SnakeGame.git" target="_blank" rel="noreferrer">
+                <a href="https://github.com/shinymcshine09/SnakeGame.git" target="_blank" rel="noopener noreferrer">
                     <div class='Snake'>
                         <Zoom>
                         <div id='SnakeImage'>
@@ -37,7 +37,7 @@ const ProjectsPage = () => {
                         <br />
                     </div>
                 </a>
-                <a href="https://github.com/shinymcshine09/Currency-Converter" target="_blank" rel="noreferrer">
+                <a href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
                     <div class='Currency'>
                         <Zoom>
                         <div id="CurrencyImage">

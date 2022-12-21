@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import Typewriter from "typewriter-effect";
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            'default_service',
+            'template_hdnu45j',
+            form.current,
+            'r588IplFP8PloORH4'
+        ).then(
+            result => console.log(result.text),
+            error => console.log(error.text)
+        );
+    };
+
     return (
         <body className="ContactContent">
             <div className="Title">
@@ -10,7 +27,7 @@ const ContactPage = () => {
             <div class='typing-contact'>
                 <Typewriter
                     options={{
-                        strings: ['Send me a message if you want to speak to me', 'I will reply asap', 'I would love to hear from you'],
+                        strings: ['Send me a message', 'I will reply asap', 'I would love to hear from you'],
                         autoStart: true,
                         loop: true,
                     }}
@@ -18,34 +35,43 @@ const ContactPage = () => {
             </div>
             <br/>
             <div className="ContactForm">
-                <form>
-                    <div>
-                        <label className="form-label" htmlFor="name">
-                            Name:
-                        </label>
-                        <br/>
-                        <input className="form-input" type="text" id="name" required placeholder='Name...'/>
-                    </div>
+                <form ref={form} onSubmit={sendEmail}>
+                    <label className="form-label">
+                        Name:
+                    </label>
                     <br/>
-                    <div className="EmailInput">
-                        <label className="form-label" htmlFor="email">
-                            Email:
-                        </label>
-                        <br/>
-                        <input className="form-input" type="email" id="email" required placeholder='Email...' />
-                    </div>
+                    <input 
+                        className="form-input" 
+                        type="text" 
+                        name="from_name"
+                        required 
+                        placeholder='Name...'
+                    />
                     <br/>
-                    <div className="MessageInput">
-                        <label className="form-label" htmlFor="message">
-                            Message:
-                        </label>
-                        <br/>
-                        <textarea className="form-input" id="message" required placeholder='Message...'/>
-                    </div>
+                    <label className="form-label">
+                        Email:
+                    </label>
                     <br/>
-                    <button type="button">
-                        Submit
-                    </button>
+                    <input 
+                        className="form-input" 
+                        type="email" 
+                        name="user_email"
+                        required 
+                        placeholder='Email...'
+                    />
+                    <br/>
+                    <label className="form-label">
+                        Message:
+                    </label>
+                    <br/>
+                    <textarea 
+                        className="form-input"
+                        name="message"
+                        placeholder='Message...' 
+                        required
+                    />
+                    <br/>
+                    <input className="submit-button" type="submit" value="Send" />
                 </form>
             </div>
         </body>

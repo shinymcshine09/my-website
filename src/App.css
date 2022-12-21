@@ -1,20 +1,19 @@
 * {
   font-family: monospace;
   color:rgb(255, 255, 255);
-
 }
 
 h1 {
   text-align: center;
-  font-size: 40px;
-  padding-top: 150px;
-  padding-bottom: 25px;
+  font-size: 3rem;
+  padding-top: 9rem;
+  padding-bottom: 2rem;
   text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   margin-top: 0;
 }
 
 h1:hover, #ProjectsHeading h1:hover {
-  animation: swinging 4s infinite;
+  /* animation: swinging 4s infinite; */
 }
 
 @keyframes swinging {
@@ -48,14 +47,11 @@ section {
   width: 100%;
   color: white;
   background-image: linear-gradient(transparent, rgb(66, 65, 65)), url(./images/coding.jpg);
-  /* background-color: rgb(49, 49, 49); */
 }
 
 .two, .ProjectsPage {
-  /* background-color: rgb(112, 153, 112); */
   text-align: center;
   background-color: rgb(49, 49, 49);
-  /* background-color: antiquewhite; */
 }
 
 .three, .AboutContent {
@@ -77,19 +73,90 @@ section {
 .Projects {
   display: flex;
   justify-content: space-evenly;
-  /* margin-top: 10%; */
   text-align: center;
   height: 60%;
-  padding-bottom: 50px;
-  /* max-width: fit-content; */
+  padding-bottom: 4rem;
+}
+
+@media screen and (max-width: 569px) and (orientation:portrait){
+  .Projects {
+    flex-wrap: wrap;
+    overflow: auto;
+  }
+
+  .Projects a {
+    flex: 40%;
+    max-width: 40%;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .HomeCircle img {
+    max-width: 50%;
+  }
+
+  #ContentBody {
+    zoom: .4;
+  }
+
+  #typing-home {
+    zoom: 70%;
+    
+  }
+
+  .typing-contact {
+    zoom: 60%;
+  }
+
+  button.hamburger {
+    display:block;
+  }
+
+  button.clicked-hamburger {
+    display:block;
+  }
+
+  div.wide-nav {
+    display: none;
+  }
+
+  .Navbar {
+    height: 1.15rem;
+  }
+
+  div.nav-expanded {
+    display: block;
+    position: fixed;
+    right: 3rem;
+    top: 7rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    text-align: end;
+  }
+
+  div.nav-expanded li {
+    margin: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) and (orientation:portrait){
+  #typing-home {
+    zoom: 50%;
+  }
+}
+
+@media screen and (orientation:landscape) and (max-width: 736px) {
 }
 
 .Snake, .Currency, .Website {
   background-color: rgb(49, 49, 49);
   border: 5px solid rgb(36, 36, 36);
-  border-radius: 20px;
-  margin: 5%;
-  max-width: 400px;
+  border-radius: 1.5rem;
+  margin: 1rem;
+  max-width: 26rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: all 1s;
 }
@@ -115,11 +182,10 @@ section {
 
 .Projects img:hover {
   filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.50));
-
 }
 
 #CurrencyImage, #WebsiteImage, #SnakeImage {
-  margin: 15px;
+  margin: 1rem;
 }
 
 .ContactContent {
@@ -128,43 +194,56 @@ section {
 }
 
 .form-input {
-  width: 50%;
+  width: 70%;
   padding: 10px;
   margin: 10px;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 1rem;
+  border-style: none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-button {
+.submit-button {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   color: black;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 input, textarea {
   color: black;
 }
 
+.wide-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.nav-expanded {
+  display: none;
+}
+
 .Navbar {
   list-style-type: none;
   position: fixed;
-  top: 20px;
-  right: 20px;
-  left: 20px;
+  top: 2rem;
+  right: 2rem;
+  left: 2rem;
   margin-top: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   z-index: 2;
   border-radius: 30px / 30px;
   font-weight: bold;
+  
 }
 
-.Navbar a:hover {
+.Navbar a:hover, button.hamburger:hover, .active {
   background: rgba(195, 195, 195, 0.6);
-  border-radius: 30px;
   color: rgb(0, 0, 0);
 }
 
@@ -178,33 +257,79 @@ input, textarea {
 
 .Navbar a {
   text-decoration: none;
-  padding: 10px;
-  border-radius: 30px;
-  margin-left: 30px;
+  padding: .5rem;
+  border-radius: 2rem;
+  margin-left: 2rem;
   color: rgb(255, 255, 255);
   transition: background 1s, color 1s;
 }
 
 .Navbar .Name {
-  left: 0;
+  left: 3.7rem;
+  top: 3.5rem;
   position: fixed;
-  padding-left: 45px;
+  font-size: 1.1rem;
 }
 
-.links {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 15px;
+.hamburger img {
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  right: 4rem;
+  top: 3.1rem;
+  filter: invert(1);
+  transition: filter 1s;
+}
+
+.hamburger img:hover {
+  filter: invert(0);
+}
+
+.clicked-hamburger img {
+  width: 2rem;
+  height: 2rem;
+  position: fixed;
+  right: 4rem;
+  top: 3.1rem;
+}
+
+button.clicked-hamburger {
+  padding-right: 2.5rem;
+  padding-bottom: 2.5rem;
+  position: fixed;
+  right: 3.55rem;
+  top: 2.8rem;
+  border-radius: 10px 10px;
+  border-style: hidden;
+}
+
+.clicked-hamburger {
+  display: none;
+}
+
+button.hamburger {
+  padding-right: 2.5rem;
+  padding-bottom: 2.5rem;
+  position: fixed;
+  right: 3.55rem;
+  top: 2.8rem;
+  border-radius: 10px 10px;
+  border-style: hidden;
+  transition: background 1s, color 1s;
+  background: transparent;
+}
+
+.hamburger {
+  display: none;
 }
 
 .HomeCircle {
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding-bottom: 2rem;
+  padding-top: 3rem;
 }
 
 .HomeCircle img {
-  width: 25%;
-  min-width: 300px;
+  width: 20rem;
   border-radius: 400px;
   border: 10px solid rgb(153, 153, 153);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -238,13 +363,20 @@ input, textarea {
 }
 
 #ContentBody {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 15%;
+  margin-right: 15%;
   height: 70%;
 }
 
 .HomeContent {
-  width: 90%;
+  width: 100%;
+}
+
+#typing-home {
+  font-size: 3rem;
+  width: 100%;
+  margin-top: 10%;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .HomeContent h1 {
@@ -253,10 +385,6 @@ input, textarea {
 
 footer {
   background: rgba(24, 24, 24, 0.5);
-  display: flex;
-  /* border: 2px solid black; */
-  position: fixed;
-  bottom: 0;
   width: 100vw;
   height: 120px;
 }
@@ -264,48 +392,26 @@ footer {
 .Sitemap {
   display: flex;
   flex-direction: column;
-  width: 50%;
   list-style-type: none;
-  width: fit-content;
-  padding-right: 200px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  margin-bottom: 0;
-  padding-bottom: 18px;
 }
-.Sitemap li {
-  padding: 3px;
+.Sitemap Link {
+  list-style: none;
 }
 
 .website-id {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  align-items: flex-end;
-  padding-right: 18px;
   align-items: center;
 }
 
 .website-id p, .website-id a {
   padding-left: 40px;
-  padding-bottom: 5px;
-}
-
-#typing-home {
-  font-size: 30px;
-  padding-top: 100px;
-  text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .typing-contact {
-  font-size: 20px;
+  font-size: 2rem;
   text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .ContactContent {
   width: 100vw;
   height: 100vh;
-  /* border: 2px solid black; */
 }

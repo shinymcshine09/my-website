@@ -5,13 +5,10 @@ const Footer = () => {
     return (
         <footer>
             <div className="website-id">
-                <p>Website created by James Hart</p>
-                <a href="mailto:js.hart@hotmail.com">email: js.hart@hotmail.com</a>
+                <p>Website created in React</p>
+                <p>Made by James Hart</p>
             </div>
             <ul className="Sitemap">
-                {/* <li>
-                    <h4>Sitemap:</h4>
-                </li> */}
                 <li>
                     <Link to="/" exact>Home</Link>
                 </li>
