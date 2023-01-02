@@ -1,9 +1,61 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
 import emailjs from '@emailjs/browser';
+import styled, { css } from "styled-components";
+
+import Heading from "./styledcomponents/HeaderStyle";
+
+const FormInput = ({UserInput, UserMessage}) => {
+    const [ name, setName ] = useState('');
+    const [ message, setMessage ] = useState('');
+    const [ userEmail, setUserEmail ] = useState('');
+    return (
+        <>
+            <label>
+                Name:
+            </label>
+            <br/>
+            <UserInput
+                type="text" 
+                name="from_name"
+                required 
+                placeholder='Name...'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+            <br/>
+            <label>
+                Email:
+            </label>
+            <br/>
+            <UserInput
+                type="email" 
+                name="user_email"
+                required 
+                placeholder='Email...'
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+            />
+            <br/>
+            <label>
+                Message:
+            </label>
+            <br/>
+            <UserMessage 
+                name="message"
+                placeholder='Your message...' 
+                required
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+            />
+            <br/>
+        </>
+    )
+}
 
 const ContactPage = () => {
     const form = useRef();
+    const [ typewriterOutput, setTypewriterOutput ] = useState(['Send me a message', 'I would love to hear from you']);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -15,66 +67,87 @@ const ContactPage = () => {
             'r588IplFP8PloORH4'
         ).then(
             result => console.log(result.text),
-            error => console.log(error.text)
+            error => console.log(error.text),
         );
+
+        setTypewriterOutput(['Thanks for the message', 'I will get back to you asap']);
     };
 
+    const InputStyle = css`
+        color: black;
+        width: 50%;
+        padding: .8rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        @media screen and (max-width: 569px) and (orientation:portrait) {
+            width: 70%;
+        }
+    `
+
+    const Content = styled.body`
+        background-color: rgb(49, 49, 49);
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+    `
+
+    const Typing = styled.div`
+        font-size: 2rem;
+        text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        padding-top: 1rem;
+        @media screen and (max-width: 569px) and (orientation:portrait){
+            zoom: 60%;
+        }
+    `
+
+    const UserInput = styled.input`
+        ${InputStyle}
+        margin-top: 1rem;
+    `
+
+    const UserMessage = styled.textarea`
+        ${InputStyle}
+        margin-top: 1rem;
+        &::-webkit-resizer {
+            display: none;
+        }
+    `
+
+    const SubmitButton = styled.input`
+        margin-top: 1rem;
+        padding: 10px;
+        border-radius: 8px;
+        color: black;
+        width: 6rem;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        padding-bottom: 1rem;
+    `
+
     return (
-        <body className="ContactContent">
-            <div className="Title">
-                <h1>Contact</h1>
+        <Content>
+            <div>
+                <Heading>Contact Me</Heading>
             </div>
-            <div class='typing-contact'>
+            <Typing>
                 <Typewriter
                     options={{
-                        strings: ['Send me a message', 'I will reply asap', 'I would love to hear from you'],
+                        strings: typewriterOutput,
                         autoStart: true,
                         loop: true,
                     }}
                 />
-            </div>
+            </Typing>
             <br/>
-            <div className="ContactForm">
+            <div>
                 <form ref={form} onSubmit={sendEmail}>
-                    <label className="form-label">
-                        Name:
-                    </label>
-                    <br/>
-                    <input 
-                        className="form-input" 
-                        type="text" 
-                        name="from_name"
-                        required 
-                        placeholder='Name...'
-                    />
-                    <br/>
-                    <label className="form-label">
-                        Email:
-                    </label>
-                    <br/>
-                    <input 
-                        className="form-input" 
-                        type="email" 
-                        name="user_email"
-                        required 
-                        placeholder='Email...'
-                    />
-                    <br/>
-                    <label className="form-label">
-                        Message:
-                    </label>
-                    <br/>
-                    <textarea 
-                        className="form-input"
-                        name="message"
-                        placeholder='Message...' 
-                        required
-                    />
-                    <br/>
-                    <input className="submit-button" type="submit" value="Send" />
+                    <FormInput UserInput={UserInput} UserMessage={UserMessage}/>
+                    <SubmitButton type="submit" value='Send' />
                 </form>
             </div>
-        </body>
+        </Content>
     )
 }
 

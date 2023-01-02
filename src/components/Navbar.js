@@ -1,51 +1,193 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import styled, { css, keyframes } from "styled-components";
 
-const Navbar = () => {
-  const [isNavExpanded, setIsNavExpanded] = useState(false)
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+function clickOutsideAlerter(ref, setIsNavExpanded) {
   useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  });
-
-  const ref = useRef();
-  const ref2 = useRef();
-
-  useEffect(() => {
-    const handleClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target) && isNavExpanded === true && ref2.current && !ref2.current.contains(event.target)) {
-        setIsNavExpanded(!isNavExpanded);
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsNavExpanded(false);
       }
-    };
-
-    document.addEventListener('click', handleClick);
-
+    }
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  },
-  );
+  }, [ref]);
+}
 
-  return (
-    <nav class="HeaderContent">
-      <ul class="Navbar"> 
+export default function Navbar() {
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const ref = useRef();
+  clickOutsideAlerter(ref, setIsNavExpanded)
+
+  const Pop = keyframes`
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.07);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  `
+
+  const HoverStyle = css`
+    background: rgba(195, 195, 195, 0.6);
+    color: rgb(0, 0, 0);
+    padding: .5rem;
+    border-radius: 2rem;
+  `
+
+  const NavBar = styled.ul`
+    list-style-type: none;
+    z-index: 2;
+    top: 1rem;
+    right: 2rem;
+    left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 30px / 30px;
+    font-weight: bold;
+    position: fixed;
+    font-family: monospace;
+    color: rgb(255, 255, 255);
+    @media screen and (max-width: 569px) and (orientation:portrait){
+      height: 28px;
+    }
+  `
+
+  const NavLinks = styled.div`
+    ${props => props.className === "wide-nav" && css`
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 15px;
+      @media screen and (max-width: 569px) and (orientation:portrait) {
+        display: none;
+      }
+    `}
+    ${props => props.className === "nav-expanded" && css`
+      display: none;
+        @media screen and (max-width: 569px) and (orientation:portrait) {
+          display: block;
+          position: fixed;
+          right: 3rem;
+          top: 7rem;
+          background: rgba(0, 0, 0, 0.6);
+          border-radius: 1rem;
+          text-align: end;
+          animation: ${Pop} 500ms ease-in-out forwards;
+        }
+        // stops the expanded navbar appearing after widening window
+        @media screen and (min-width: 570px) and (orientation:portrait) {
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 15px;
+        }
+    `}
+    & .active {
+      ${HoverStyle}
+    }
+  `
+
+  const LinkItem = styled.li`
+    padding: .5rem;
+    border-radius: 2rem;
+    margin-left: 1rem;
+    color: rgb(255, 255, 255);
+    transition: background 1s, color 1s;
+    &:visited {
+      color: rgb(255, 255, 255);
+    }
+    @media screen and (max-width: 569px) and (orientation:portrait){
+      margin: 2rem;
+    }
+    & #kid {
+      text-decoration: none;
+      transition: background 1s, color 1s;
+      padding: .5rem;
+      border-radius: 2rem;
+    }
+    & #kid:hover {
+      ${HoverStyle}
+    }
+  `
+
+  const MyName = styled.text`
+    left: 3.7rem;
+    top: 3.5rem;
+    position: fixed;
+    font-size: 1.1rem;
+  `
+
+  const ButtonStyles = styled.button`
+    ${props => props.className === "hamburger" && css`
+      padding-right: 2.5rem;
+      padding-bottom: 2.5rem;
+      position: fixed;
+      right: 3.55rem;
+      top: 2.8rem;
+      border-radius: 10px 10px;
+      border-style: hidden;
+      transition: background 1s, color 1s;
+      background: transparent;
+      display: none;
+      &:hover {
+        background: rgba(195, 195, 195, 0.6);
+        color: rgb(0, 0, 0);
+        & #kid {
+          filter: invert(0);
+        }
+      }
+      @media screen and (max-width: 569px) and (orientation:portrait) {
+        display: block;
+      }
+    `}
+    ${props => props.className === "clicked-hamburger" && css`
+      padding-right: 2.5rem;
+      padding-bottom: 2.5rem;
+      position: fixed;
+      right: 3.55rem;
+      top: 2.8rem;
+      border-radius: 10px 10px;
+      border-style: hidden;
+      @media screen and (min-width: 570px) and (orientation:portrait) {
+        display: none;
+      }
+      & #kid ${!isNavExpanded} {
+        width: 2rem;
+        height: 2rem;
+        position: fixed;
+        right: 4rem;
+        top: 3.1rem;
+        filter: invert(0);
+      }
+    `}
+    & #kid ${isNavExpanded} {
+      width: 2rem;
+      height: 2rem;
+      position: fixed;
+      right: 4rem;
+      top: 3.1rem;
+      filter: invert(1);
+      transition: filter 1s;
+    }
+  `
+
+  return(
+    <nav>
+      <NavBar> 
         <li>
-          <text class="Name">
+          <MyName>
             James Hart
-          </text>
+          </MyName>
         </li>
-        <button 
-          ref={ref}
+        <ButtonStyles 
+          
           className={
             isNavExpanded ? "clicked-hamburger" : "hamburger"
           }
@@ -53,30 +195,27 @@ const Navbar = () => {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <img src={require('../images/hamburger_black.png')} alt="hamburger-icon" />
-        </button>
-        <div
-          ref={ref2}
+          <img id="kid" src={require('../images/hamburger_black.png')} alt="hamburger-icon" />
+        </ButtonStyles>
+        <NavLinks
+          ref={ref}
           className={
-            (isNavExpanded && windowWidth < 570) ? "nav-expanded" : "wide-nav"
+            (isNavExpanded) ? "nav-expanded" : 'wide-nav'
           }
         >
-          <li>
-            <NavLink to="/" exact>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/projects">Projects</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-        </div>
-      </ul>
-    </nav>
-  )
+          <LinkItem>
+            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/" exact id="kid">Home</NavLink>
+          </LinkItem>
+          <LinkItem>
+            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/projects" id="kid">Projects</NavLink>
+          </LinkItem>
+          <LinkItem>
+            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/about" id="kid">About</NavLink>
+          </LinkItem>
+          <LinkItem>
+            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/contact" id="kid">Contact</NavLink>
+          </LinkItem>
+        </NavLinks>
+      </NavBar>
+    </nav>);
 }
-
-export default Navbar;
