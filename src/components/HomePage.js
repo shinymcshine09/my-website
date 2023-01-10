@@ -203,12 +203,14 @@ const HomePage = () => {
         margin-left: 35%;
         margin-top: -10%;
         height: fit-content;
+        @media screen and (max-width: 735px) and (orientation:portrait){
+            margin-left: 25%;
+        }
     `
 
     const Portrait = styled.img`
         filter: saturate(30%);
         @media screen and (max-width: 735px) and (orientation:portrait){
-            /* margin-top: -100px; */
             width: 250px;
         }
     `
