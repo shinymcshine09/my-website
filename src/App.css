@@ -1,4 +1,6 @@
 * {
   font-family: monospace;
   color:rgb(239, 239, 239);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes, css } from 'styled-components';
 
 import portrait from '../images/portraitwithbkgr.png';
+import HomeBackground from "../images/codingbackground.jpg"
 
 import FadeIn from "./styledcomponents/FadeIn";
 import FadeUpAtAngle from "./styledcomponents/FadeUpAtAngle";
@@ -184,8 +185,6 @@ const HomePage = () => {
     `
 
     const PortraitContainer = styled.div`
-        -webkit-perspective: 1; 
-        -webkit-backface-visibility: none; 
         opacity: 0;
         animation: ${FadeUpAtAngle} 2s linear forwards;
         width: fit-content;

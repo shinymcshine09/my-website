@@ -67,7 +67,7 @@ const AboutPage = () => {
                 <p>
                     I am an Open University student currently studying Computer Science looking to 
                     get a job as a Web Developer. I am looking for a Junior position to help me grow 
-                    my skills as a developer to prepare for the long term.
+                    my skills as a developer through learning from others.
                 </p>
                 <br/>
                 <p>

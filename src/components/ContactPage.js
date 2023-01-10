@@ -69,7 +69,7 @@ export default function ContactPage() {
     const form = useRef();
     const location = useLocation();
     const [isFormSent, setIsFormSent ] = useState(false);
-    var greetings = ['Send me a message', 'I would love to hear from you'];
+    var greetings = ['Please send me a message', 'I would love to hear from you'];
     var afterFormSentGreetings = ['Thanks for the message', 'I will get back to you asap'];
 
 
