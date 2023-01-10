@@ -2,6 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
 
+import HomeIcon from "./icons/HomeIcon";
+import ContactIcon from "./icons/ContactIcon";
+import ProjectsIcon from "./icons/ProjectsIcon";
+import AboutIcon from "./icons/AboutIcon";
+
 function clickOutsideAlerter(ref, setIsNavExpanded) {
   useEffect(() => {
     function handleClickOutside(event) {
@@ -36,8 +41,10 @@ export default function Navbar() {
   `
 
   const HoverStyle = css`
-    background: rgba(195, 195, 195, 0.6);
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
+    filter: invert(1);
+    /* background: rgba(20, 20, 20, 0.6); */
+    background: linear-gradient(45deg, rgba(55,55,55,0.6), rgba(22,22,22,0.6));
     padding: .5rem;
     border-radius: 2rem;
   `
@@ -56,7 +63,7 @@ export default function Navbar() {
     position: fixed;
     font-family: monospace;
     color: rgb(255, 255, 255);
-    @media screen and (max-width: 569px) and (orientation:portrait){
+    @media screen and (max-width: 640px) and (orientation:portrait){
       height: 28px;
     }
   `
@@ -66,13 +73,13 @@ export default function Navbar() {
       display: flex;
       justify-content: flex-end;
       padding-right: 15px;
-      @media screen and (max-width: 569px) and (orientation:portrait) {
+      @media screen and (max-width: 640px) and (orientation:portrait) {
         display: none;
       }
     `}
     ${props => props.className === "nav-expanded" && css`
       display: none;
-        @media screen and (max-width: 569px) and (orientation:portrait) {
+        @media screen and (max-width: 640px) and (orientation:portrait) {
           display: block;
           position: fixed;
           right: 3rem;
@@ -83,7 +90,7 @@ export default function Navbar() {
           animation: ${Pop} 500ms ease-in-out forwards;
         }
         // stops the expanded navbar appearing after widening window
-        @media screen and (min-width: 570px) and (orientation:portrait) {
+        @media screen and (min-width: 640px) and (orientation:portrait) {
           display: flex;
           justify-content: flex-end;
           padding-right: 15px;
@@ -103,7 +110,7 @@ export default function Navbar() {
     &:visited {
       color: rgb(255, 255, 255);
     }
-    @media screen and (max-width: 569px) and (orientation:portrait){
+    @media screen and (max-width: 640px) and (orientation:portrait){
       margin: 2rem;
     }
     & #kid {
@@ -143,7 +150,7 @@ export default function Navbar() {
           filter: invert(0);
         }
       }
-      @media screen and (max-width: 569px) and (orientation:portrait) {
+      @media screen and (max-width: 640px) and (orientation:portrait) {
         display: block;
       }
     `}
@@ -155,7 +162,7 @@ export default function Navbar() {
       top: 2.8rem;
       border-radius: 10px 10px;
       border-style: hidden;
-      @media screen and (min-width: 570px) and (orientation:portrait) {
+      @media screen and (min-width: 640px) and (orientation:portrait) {
         display: none;
       }
       & #kid ${!isNavExpanded} {
@@ -187,7 +194,6 @@ export default function Navbar() {
           </MyName>
         </li>
         <ButtonStyles 
-          
           className={
             isNavExpanded ? "clicked-hamburger" : "hamburger"
           }
@@ -204,16 +210,45 @@ export default function Navbar() {
           }
         >
           <LinkItem>
-            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/" exact id="kid">Home</NavLink>
+            <NavLink 
+              onClick={() => { setIsNavExpanded(false);}} 
+              to="/" 
+              exact 
+              id="kid"
+            >
+              <HomeIcon />
+              Home
+            </NavLink>
           </LinkItem>
           <LinkItem>
-            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/projects" id="kid">Projects</NavLink>
+            <NavLink 
+              onClick={() => { setIsNavExpanded(false);}} 
+              to="/projects" 
+              id="kid"
+            >
+              <ProjectsIcon />
+              Projects
+            </NavLink>
           </LinkItem>
           <LinkItem>
-            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/about" id="kid">About</NavLink>
+            <NavLink 
+              onClick={() => { setIsNavExpanded(false);}} 
+              to="/about" 
+              id="kid"
+            >
+              <AboutIcon />
+              About
+            </NavLink>
           </LinkItem>
           <LinkItem>
-            <NavLink onClick={() => { setIsNavExpanded(false);}} to="/contact" id="kid">Contact</NavLink>
+            <NavLink 
+              onClick={() => { setIsNavExpanded(false);}} 
+              to="/contact" 
+              id="kid"
+            >
+              <ContactIcon />
+              Contact
+            </NavLink>
           </LinkItem>
         </NavLinks>
       </NavBar>

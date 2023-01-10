@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styled, { keyframes, css } from 'styled-components';
 
+import portrait from '../images/portraitwithbkgr.png';
+
+import FadeIn from "./styledcomponents/FadeIn";
+import FadeUpAtAngle from "./styledcomponents/FadeUpAtAngle";
+
 const ManageName = ({NameHeading}) => {
     const [ isHoveringName, setIsHoveringName ] = useState(false);
     const [ name, setName ] = useState("JH");
@@ -51,9 +56,16 @@ const ManageTitle = ({Title}) => {
     )
 }
 
+/**
+ * Handles the typed greeting on the homepage.
+ * 
+ * @param {Typing} param0 hands the styled component for the returned
+ * element.
+ * @returns the html element that handles the typewriter effect.
+ */
 const ManageGreeting = ({Typing}) => {
     let greetings = [
-        'Hello!',
+        'Hello world!',
         'Good Morning',
         'Good Afternoon',
         'Good Evening',
@@ -63,16 +75,23 @@ const ManageGreeting = ({Typing}) => {
     ];
     const [ currentGreeting, setCurrentGreeting ] = useState(greetings[0]);
 
+    /**
+     * Changes greeting to the next in the list depending on the current hour
+     * it will decide between the correct greetings.
+     */
     const changeGreeting = () => {
-        var currentHour = new Date().getHours();
-        if (greetings.indexOf(currentGreeting) === 0 && currentHour < 12) {
+        let currentHour = new Date().getHours();
+        if (greetings.indexOf(currentGreeting) === 0 && currentHour < 12 && currentHour >= 0) {
             setCurrentGreeting(greetings[1])
         }
-        else if (greetings.indexOf(currentGreeting) === 0 && currentHour < 18) {
+        else if (greetings.indexOf(currentGreeting) === 0 && currentHour < 18 && currentHour > 11) {
             setCurrentGreeting(greetings[2])
         }
         else if (greetings.indexOf(currentGreeting) === 0) {
             setCurrentGreeting(greetings[3])
+        }
+        else if (greetings.indexOf(currentGreeting) > 0 && greetings.indexOf(currentGreeting) < 4) {
+            setCurrentGreeting(greetings[4])
         }
         else if (greetings.indexOf(currentGreeting) + 1 < greetings.length) {
             setCurrentGreeting(greetings[greetings.indexOf(currentGreeting) + 1]);
@@ -82,13 +101,8 @@ const ManageGreeting = ({Typing}) => {
         }
     };
 
-    const getId = () => {
-        const id = currentGreeting;
-        return id;
-    };
-
     return (
-        <Typing key={getId()} length={currentGreeting.length} onAnimationEnd={changeGreeting}>
+        <Typing key={currentGreeting} length={currentGreeting.length} onAnimationEnd={changeGreeting}>
             <text> {currentGreeting} </text>
         </Typing>
     )
@@ -118,13 +132,10 @@ const HomePage = () => {
         }
     `
 
-    const FadeIn = keyframes`
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    `
-
     const MainHeadingContainer = styled.div`
         text-align: start;
+        position: relative;
+        z-index: 2;
         margin-left: 5%;
         margin-top: 100px;
         width: fit-content;
@@ -132,7 +143,7 @@ const HomePage = () => {
     `
 
     const NameHeading = styled.h1`
-        font-size: 8rem;
+        font-size: 6rem;
         margin-bottom: 0;
         ${props => props.className === 'full-name' && css`
             overflow: hidden;
@@ -142,19 +153,19 @@ const HomePage = () => {
             animation: ${TypingAnimationAlternate} 6s forwards steps(${(p) => p.length}, end), ${CaretAnimation} 1s infinite;
         `}
         ${props => props.className === 'initials' && css`
-            opacity: 1;
+            opacity: 0;
             animation: ${FadeIn} 3s forwards;
         `}
         @media screen and (max-width: 735px) and (orientation:portrait){
             font-size: 5rem;
             border-right: 2px solid;
             border-right-color: transparent;
-            /* margin-bottom: 2rem; */
         }
     `
 
-    const Title = styled.h1`
+    const SubTitle = styled.h1`
         font-size: 3rem;
+        margin-bottom: 20px;
         ${props => props.className === 'full-subtitle' && css`
             overflow: hidden;
             border-right: .1em solid orange;
@@ -164,7 +175,7 @@ const HomePage = () => {
             animation: ${TypingAnimationAlternate} 12s forwards steps(${(p) => p.length}, end), ${CaretAnimation} 1s infinite;
         `}
         ${props => props.className === 'anagram' && css`
-            opacity: 1;
+            opacity: 0;
             animation: ${FadeIn} 3s forwards;
         `}
         @media screen and (max-width: 735px) and (orientation:portrait){
@@ -172,45 +183,60 @@ const HomePage = () => {
         }
     `
 
-    const TypingContainer = styled.div`
-        margin-left: 5%;
-        /* margin-top: 4rem; */
+    const PortraitContainer = styled.div`
+        -webkit-perspective: 1; 
+        -webkit-backface-visibility: none; 
+        opacity: 0;
+        animation: ${FadeUpAtAngle} 2s linear forwards;
         width: fit-content;
+        height: fit-content;
+        float: right;
+        @media screen and (max-width: 600px) and (orientation:portrait){
+
+        }
+    `
+
+    const Portrait = styled.img`
+        float: right;
+        margin-top: -150px;
+        margin-right: 100px;
+        filter: saturate(30%);
+        @media screen and (max-width: 735px) and (orientation:portrait){
+            margin-top: -100px;
+            width: 250px;
+        }
+    `
+
+    const TypingContainer = styled.div`
+        width: fit-content;
+        clear: both;
+        margin-left: 10px;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
 
     const Typing = styled.div`
-        font-size: 2rem;
-        width: 100%;
-        /* margin-top: 3%; */
-        margin-bottom: 0;
-        text-align: start;
+        font-size: 1.5rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         overflow: hidden;
         white-space: nowrap;
         width: 0;
         border-right: .1em solid orange;
-        animation: ${TypingAnimationAlternate} 10s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
-        ${props => props.length === 6 && css`
-            animation: ${TypingAnimationAlternate} 4s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
-        `}
-        ${props => props.length > 11 && props.length < 15 && css`
-            animation: ${TypingAnimationAlternate} 6s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
-        `}
-        @media screen and (max-width: 735px) and (orientation:portrait){
-            font-size: 1.5rem;
-        }
+        // does the typewriter animation based on size of greeting
+        animation: ${TypingAnimationAlternate} ${p => p.length / 2}s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
     `
 
     return (
         <Body>
             <MainHeadingContainer>
                 <ManageName NameHeading={NameHeading} />
-                <ManageTitle Title={Title} />
+                <ManageTitle Title={SubTitle} />
             </MainHeadingContainer>
-            <TypingContainer>
-                <ManageGreeting Typing={Typing}/>
-            </TypingContainer>
+            <PortraitContainer>
+                <Portrait src={portrait} alt='me'></Portrait>
+                    <TypingContainer>
+                        <ManageGreeting Typing={Typing}/>
+                    </TypingContainer>
+            </PortraitContainer>
         </Body>
     )
 }

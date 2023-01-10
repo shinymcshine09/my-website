@@ -37,10 +37,6 @@ const Home = () => {
         background-color: rgb(49, 49, 49);
         background-image: linear-gradient(transparent, rgb(66, 65, 65)), url(${HomeBackground});
         ${Section}
-        backface-visibility: hidden; 
-        -webkit-backface-visibility: hidden;
-        -moz-backface-visibility:    hidden;
-        -ms-backface-visibility:     hidden;
     `
 
     const Two = styled.section`

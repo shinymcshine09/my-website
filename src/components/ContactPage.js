@@ -1,61 +1,77 @@
 import React, { useRef, useState } from "react";
-import Typewriter from "typewriter-effect";
 import emailjs from '@emailjs/browser';
 import styled, { css } from "styled-components";
+import { InView } from "react-intersection-observer";
+import { useLocation } from "react-router-dom";
 
-import Heading from "./styledcomponents/HeaderStyle";
+import Heading from "./styledcomponents/HeadingStyle";
+import FadeUp from "./styledcomponents/FadeUp";
+import FadeIn from "./styledcomponents/FadeIn";
+import TypewriterEffect from "./javaeffects/TypewriterEffect";
 
-const FormInput = ({UserInput, UserMessage}) => {
+
+function FormInput({Label, UserInput, InputContainer, Input, UserMessage}) {
     const [ name, setName ] = useState('');
     const [ message, setMessage ] = useState('');
     const [ userEmail, setUserEmail ] = useState('');
+
     return (
-        <>
-            <label>
+        <InputContainer>
+             <Label>
                 Name:
-            </label>
-            <br/>
-            <UserInput
-                type="text" 
-                name="from_name"
-                required 
-                placeholder='Name...'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <br/>
-            <label>
+            </Label>
+            <Input>
+                <br/>
+                <UserInput
+                    type="text" 
+                    name="from_name"
+                    required 
+                    placeholder='Name...'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <br/>
+            </Input>
+            <Label>
                 Email:
-            </label>
-            <br/>
-            <UserInput
-                type="email" 
-                name="user_email"
-                required 
-                placeholder='Email...'
-                value={userEmail}
-                onChange={(e) => setUserEmail(e.target.value)}
-            />
-            <br/>
-            <label>
+            </Label>
+            <Input>
+                <br/>
+                <UserInput
+                    type="email" 
+                    name="user_email"
+                    required 
+                    placeholder='Email...'
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                />
+                <br/>
+            </Input>
+            <Label>
                 Message:
-            </label>
-            <br/>
-            <UserMessage 
-                name="message"
-                placeholder='Your message...' 
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-            />
-            <br/>
-        </>
+            </Label>
+            <Input>
+                <br/>
+                <UserMessage 
+                    name="message"
+                    placeholder='Your message...' 
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                <br/>
+            </Input>
+        </ InputContainer>
     )
 }
 
-const ContactPage = () => {
+export default function ContactPage() {
     const form = useRef();
-    const [ typewriterOutput, setTypewriterOutput ] = useState(['Send me a message', 'I would love to hear from you']);
+    const location = useLocation();
+    const [isFormSent, setIsFormSent ] = useState(false);
+    var greetings = ['Send me a message', 'I would love to hear from you'];
+    var afterFormSentGreetings = ['Thanks for the message', 'I will get back to you asap'];
+
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -70,36 +86,90 @@ const ContactPage = () => {
             error => console.log(error.text),
         );
 
-        setTypewriterOutput(['Thanks for the message', 'I will get back to you asap']);
+        setIsFormSent(true);
     };
 
-    const InputStyle = css`
-        color: black;
-        width: 50%;
-        padding: .8rem;
-        margin: 1rem;
-        border-radius: 1rem;
-        border-style: none;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        @media screen and (max-width: 569px) and (orientation:portrait) {
-            width: 70%;
-        }
-    `
-
-    const Content = styled.body`
+    const Page = styled.body`
         background-color: rgb(49, 49, 49);
         text-align: center;
         width: 100vw;
         height: 100vh;
     `
 
+    const Content = styled.div`
+        height: 100vh;
+    `
+
     const Typing = styled.div`
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         padding-top: 1rem;
         @media screen and (max-width: 569px) and (orientation:portrait){
-            zoom: 60%;
+            /* font-size: 1.5rem; */
         }
+        ${p => p.inView && location.pathname === '/' && css`
+            animation: ${FadeUp} 2s forwards;
+        `}
+        ${location.pathname !== '/' && css`
+            animation: ${FadeIn} 2s forwards;
+        `}
+    `
+
+    const FormContainer = styled.div`
+        opacity: 0;
+        ${p => p.inView && location.pathname === '/' && css`
+            animation: ${FadeUp} 2s forwards;
+        `}
+        ${location.pathname !== '/' && css`
+            animation: ${FadeIn} 2s forwards;
+        `}
+    `
+
+    const SubmitButton = styled.input`
+        margin-top: 1rem;
+        padding: 10px;
+        border-radius: 8px;
+        color: black;
+        width: 6rem;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        padding-bottom: 1rem;
+        ${p => p.inView && location.pathname === '/' && css`
+            animation: ${FadeUp} 2s forwards;
+        `}
+        ${location.pathname !== '/' && css`
+            animation: ${FadeIn} 2s forwards;
+        `}
+    `
+
+    const InputStyle = css`
+        color: black;
+        width: 90%;
+        padding: .8rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    `
+
+    const InputContainer = styled.div`
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        justify-content: center;
+        align-items: center;
+    `
+
+    const Label = styled.label`
+        margin-top: 1rem;
+        width: 100%;
+        text-align: left;
+    `
+
+    const Input = styled.div`
+        width: 100%;
     `
 
     const UserInput = styled.input`
@@ -115,40 +185,52 @@ const ContactPage = () => {
         }
     `
 
-    const SubmitButton = styled.input`
-        margin-top: 1rem;
-        padding: 10px;
-        border-radius: 8px;
-        color: black;
-        width: 6rem;
-        border-style: none;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        padding-bottom: 1rem;
+    const Container = styled.div`
+        height: 30px;
     `
 
     return (
-        <Content>
-            <div>
-                <Heading>Contact Me</Heading>
-            </div>
-            <Typing>
-                <Typewriter
-                    options={{
-                        strings: typewriterOutput,
-                        autoStart: true,
-                        loop: true,
-                    }}
-                />
-            </Typing>
-            <br/>
-            <div>
-                <form ref={form} onSubmit={sendEmail}>
-                    <FormInput UserInput={UserInput} UserMessage={UserMessage}/>
-                    <SubmitButton type="submit" value='Send' />
-                </form>
-            </div>
-        </Content>
+        <Page>
+            <InView triggerOnce>
+                {({ inView, ref }) => (
+                    <Content>
+                        <div>
+                            <Heading 
+                                location={location} 
+                                ref={ref} 
+                                inView={inView}
+                            >
+                                Contact Me
+                            </Heading>
+                        </div>
+                        <Typing ref={ref} inView={inView}>
+                            <TypewriterEffect 
+                                Greetings={greetings} 
+                                SecondGreetings={afterFormSentGreetings} 
+                                ContainerStyle={Container} 
+                                isFormSent={isFormSent} 
+                            />
+                        </Typing>
+                        <br/>
+                        <FormContainer ref={ref} inView={inView}>
+                            <form ref={form} onSubmit={sendEmail}>
+                                <FormInput 
+                                    InputContainer={InputContainer} 
+                                    Input={Input} 
+                                    Label={Label}
+                                    UserInput={UserInput} 
+                                    UserMessage={UserMessage}/>
+                                <SubmitButton 
+                                    ref={ref} 
+                                    inView={inView} 
+                                    type="submit" 
+                                    value='Send' 
+                                />
+                            </form>
+                        </FormContainer>
+                    </Content>
+                )}
+            </InView>
+        </Page>
     )
 }
-
-export default ContactPage;
