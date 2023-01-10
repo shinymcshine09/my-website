@@ -38,6 +38,13 @@ const ProjectsPage = () => {
         }
     `
 
+    const ImageContainer = styled.div`
+        margin: 1rem;
+        &#kid {
+            margin: 2rem;
+        }
+    `
+
     const Image = styled.img`
         width: 100%;
         height: 100%;
@@ -70,18 +77,10 @@ const ProjectsPage = () => {
         }
     `
 
-    const ImageContainer = styled.div`
-        margin: 1rem;
-        &#kid {
-            margin: 2rem;
-        }
-    `
-
     const Links = styled.a`
         opacity: 0;
         text-decoration: none;
         @media screen and (max-width: 569px) and (orientation:portrait){
-            /* flex: 40%; */
             max-width: 95%;
         }
         ${p => p.inView && location.pathname === '/' && css`

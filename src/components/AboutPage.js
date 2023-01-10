@@ -65,13 +65,13 @@ const AboutPage = () => {
             </div>
             <Body ref={ref} inView={inView}>
                 <p>
-                    I am an Open University student currently studying Computer Science looking to 
+                    I am an Open University student currently studying Computer Science part time looking to 
                     get a job as a Web Developer. I am looking for a Junior position to help me grow 
                     my skills as a developer through learning from others.
                 </p>
                 <br/>
                 <p>
-                    When not studying for University I code a lot, as it has 
+                    When not studying for University, I code a lot as it has 
                     become sort of a hobby for me. One of the things I 
                     have been coding is this website, amongst other things. This is to showcase some of the 
                     skills I have already but also hope to build on in future Jobs.

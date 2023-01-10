@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
 
 export default function TypewriterEffect({Greetings, SecondGreetings, ContainerStyle, isFormSent}) {
     const [ greetings, setGreetings ] = useState(Greetings);
@@ -42,28 +41,11 @@ export default function TypewriterEffect({Greetings, SecondGreetings, ContainerS
         }
     })
 
-    const CaretAnimation = keyframes`
-        0% {
-            border-right-color: transparent;
-        }
-        100% {
-            border-right-color: orange;
-        }
-    `
-
-    const CaretStyle = styled.div`
-        &::after {
-            content: " ";
-            border-right: 2px solid orange;
-            animation: ${CaretAnimation} 1s ease-in-out infinite;
-        }
-    `
-
     return (
         <ContainerStyle>
-            <CaretStyle>
+            <div>
                 <text>{output}</text>
-            </CaretStyle>
+            </div>
         </ContainerStyle>
     )
 }

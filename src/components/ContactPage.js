@@ -9,6 +9,8 @@ import FadeUp from "./styledcomponents/FadeUp";
 import FadeIn from "./styledcomponents/FadeIn";
 import TypewriterEffect from "./javaeffects/TypewriterEffect";
 
+import Caret from "./javaeffects/Caret";
+
 
 function FormInput({Label, UserInput, InputContainer, Input, UserMessage}) {
     const [ name, setName ] = useState('');
@@ -101,6 +103,8 @@ export default function ContactPage() {
     `
 
     const Typing = styled.div`
+        display: flex;
+        justify-content: center;
         font-size: 1.5rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         padding-top: 1rem;
@@ -210,6 +214,7 @@ export default function ContactPage() {
                                 ContainerStyle={Container} 
                                 isFormSent={isFormSent} 
                             />
+                            <Caret />
                         </Typing>
                         <br/>
                         <FormContainer ref={ref} inView={inView}>

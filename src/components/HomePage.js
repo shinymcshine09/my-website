@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import styled, { keyframes, css } from 'styled-components';
 
 import portrait from '../images/portraitwithbkgr.png';
-import HomeBackground from "../images/codingbackground.jpg"
 
 import FadeIn from "./styledcomponents/FadeIn";
-import FadeUpAtAngle from "./styledcomponents/FadeUpAtAngle";
+import FadeUp from "./styledcomponents/FadeUp";
 
 const ManageName = ({NameHeading}) => {
     const [ isHoveringName, setIsHoveringName ] = useState(false);
@@ -82,16 +81,19 @@ const ManageGreeting = ({Typing}) => {
      */
     const changeGreeting = () => {
         let currentHour = new Date().getHours();
-        if (greetings.indexOf(currentGreeting) === 0 && currentHour < 12 && currentHour >= 0) {
+        if (greetings.indexOf(currentGreeting) === 0 
+            && currentHour < 12 && currentHour >= 0) {
             setCurrentGreeting(greetings[1])
         }
-        else if (greetings.indexOf(currentGreeting) === 0 && currentHour < 18 && currentHour > 11) {
+        else if (greetings.indexOf(currentGreeting) === 0 
+                && currentHour < 18 && currentHour > 11) {
             setCurrentGreeting(greetings[2])
         }
         else if (greetings.indexOf(currentGreeting) === 0) {
             setCurrentGreeting(greetings[3])
         }
-        else if (greetings.indexOf(currentGreeting) > 0 && greetings.indexOf(currentGreeting) < 4) {
+        else if (greetings.indexOf(currentGreeting) > 0 
+                && greetings.indexOf(currentGreeting) < 4) {
             setCurrentGreeting(greetings[4])
         }
         else if (greetings.indexOf(currentGreeting) + 1 < greetings.length) {
@@ -103,7 +105,11 @@ const ManageGreeting = ({Typing}) => {
     };
 
     return (
-        <Typing key={currentGreeting} length={currentGreeting.length} onAnimationEnd={changeGreeting}>
+        <Typing 
+            key={currentGreeting} 
+            length={currentGreeting.length} 
+            onAnimationEnd={changeGreeting}
+        >
             <text> {currentGreeting} </text>
         </Typing>
     )
@@ -184,24 +190,25 @@ const HomePage = () => {
         }
     `
 
+    const PortraitCC = styled.div`
+        width: 100%;
+
+
+    `
+
     const PortraitContainer = styled.div`
         opacity: 0;
-        animation: ${FadeUpAtAngle} 2s linear forwards;
+        animation: ${FadeUp} 2s linear forwards;
         width: fit-content;
+        margin-left: 35%;
+        margin-top: -10%;
         height: fit-content;
-        float: right;
-        @media screen and (max-width: 600px) and (orientation:portrait){
-
-        }
     `
 
     const Portrait = styled.img`
-        float: right;
-        margin-top: -150px;
-        margin-right: 100px;
         filter: saturate(30%);
         @media screen and (max-width: 735px) and (orientation:portrait){
-            margin-top: -100px;
+            /* margin-top: -100px; */
             width: 250px;
         }
     `
@@ -230,12 +237,14 @@ const HomePage = () => {
                 <ManageName NameHeading={NameHeading} />
                 <ManageTitle Title={SubTitle} />
             </MainHeadingContainer>
-            <PortraitContainer>
-                <Portrait src={portrait} alt='me'></Portrait>
-                    <TypingContainer>
-                        <ManageGreeting Typing={Typing}/>
-                    </TypingContainer>
-            </PortraitContainer>
+            <PortraitCC>
+                <PortraitContainer>
+                    <Portrait src={portrait} alt='me'></Portrait>
+                        <TypingContainer>
+                            <ManageGreeting Typing={Typing}/>
+                        </TypingContainer>
+                </PortraitContainer>
+            </PortraitCC>
         </Body>
     )
 }
