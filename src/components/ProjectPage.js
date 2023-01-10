@@ -33,8 +33,8 @@ const ProjectsPage = () => {
         height: 80vh;
         /* width: fit-content; */
         @media screen and (max-width: 569px) and (orientation:portrait){
-            flex-wrap: wrap;
-            overflow: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
     `
 
@@ -81,8 +81,8 @@ const ProjectsPage = () => {
         opacity: 0;
         text-decoration: none;
         @media screen and (max-width: 569px) and (orientation:portrait){
-            flex: 40%;
-            max-width: 45%;
+            /* flex: 40%; */
+            max-width: 95%;
         }
         ${p => p.inView && location.pathname === '/' && css`
             animation: ${FadeUp} 2s forwards;
@@ -116,60 +116,60 @@ const ProjectsPage = () => {
                     </div>
                     <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1}>
                         <MouseParallaxChild factorX={0.1} factorY={0.1}>
-                                    <Portfolio>
-                                        <Links 
-                                            ref={ref} 
-                                            inView={inView} 
-                                            href="https://github.com/shinymcshine09/my-app.git" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
+                            <Portfolio>
+                                <Links 
+                                    ref={ref} 
+                                    inView={inView} 
+                                    href="https://github.com/shinymcshine09/my-app.git" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    <Project>
+                                        <ImageContainer>
+                                            <Image src={require('../images/coding.png')} alt="WebsiteIcon"/>
+                                        </ImageContainer>
+                                        <h4 
+                                            id="project-id"
                                         >
-                                            <Project>
-                                                <ImageContainer>
-                                                    <Image src={require('../images/coding.png')} alt="WebsiteIcon"/>
-                                                </ImageContainer>
-                                                <h4 
-                                                    id="project-id"
-                                                >
-                                                    My Website Code
-                                                </h4>
-                                                <DescriptionContainer>
-                                                    <Description>This website's code, written in react by Me</Description>
-                                                </DescriptionContainer>
-                                                <br />
-                                            </Project>
-                                        </Links>
-                                        <Links 
-                                            ref={ref} 
-                                            inView={inView} 
-                                            href="https://github.com/shinymcshine09/SnakeGame.git" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Project>
-                                                <ImageContainer>
-                                                    <Image src={require('../images/snakehead.png')} alt="SnakeHead"/>
-                                                </ImageContainer>
-                                                <h4 id="project-id">Java Snake Game</h4>
-                                                <DescriptionContainer>
-                                                    <Description>A version of Nokia's game Snake, written in Java</Description>
-                                                </DescriptionContainer>
-                                                <br />
-                                            </Project>
-                                        </Links>
-                                        <Links ref={ref} inView={inView} href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
-                                            <Project>
-                                                <ImageContainer id='kid'>
-                                                    <Image src={require("../images/134164_money_exchange_cash_currency_icon.png")} alt="CurrencyImg"/>
-                                                </ImageContainer>
-                                                <h4 id="project-id">Currency Converter</h4>
-                                                <DescriptionContainer>
-                                                    <Description>A web scraper with a graphical user interface</Description>
-                                                </DescriptionContainer>
-                                                <br />
-                                            </Project>
-                                        </Links>
-                                    </Portfolio>
+                                            My Website Code
+                                        </h4>
+                                        <DescriptionContainer>
+                                            <Description>This website's code, written in react by Me</Description>
+                                        </DescriptionContainer>
+                                        <br />
+                                    </Project>
+                                </Links>
+                                <Links 
+                                    ref={ref} 
+                                    inView={inView} 
+                                    href="https://github.com/shinymcshine09/SnakeGame.git" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    <Project>
+                                        <ImageContainer>
+                                            <Image src={require('../images/snakehead.png')} alt="SnakeHead"/>
+                                        </ImageContainer>
+                                        <h4 id="project-id">Java Snake Game</h4>
+                                        <DescriptionContainer>
+                                            <Description>A version of Nokia's game Snake, written in Java</Description>
+                                        </DescriptionContainer>
+                                        <br />
+                                    </Project>
+                                </Links>
+                                <Links ref={ref} inView={inView} href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
+                                    <Project>
+                                        <ImageContainer id='kid'>
+                                            <Image src={require("../images/134164_money_exchange_cash_currency_icon.png")} alt="CurrencyImg"/>
+                                        </ImageContainer>
+                                        <h4 id="project-id">Currency Converter</h4>
+                                        <DescriptionContainer>
+                                            <Description>A web scraper with a graphical user interface</Description>
+                                        </DescriptionContainer>
+                                        <br />
+                                    </Project>
+                                </Links>
+                            </Portfolio>
                         </MouseParallaxChild>
                     </MouseParallaxContainer>
                 </ProjectsContent>
