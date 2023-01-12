@@ -71,7 +71,7 @@ export default function ContactPage() {
     const form = useRef();
     const location = useLocation();
     const [isFormSent, setIsFormSent ] = useState(false);
-    var greetings = ['Please send me a message', 'I would love to hear from you'];
+    var greetings = ["Send me a message, if you wish", 'I would love to hear from you'];
     var afterFormSentGreetings = ['Thanks for the message', 'I will get back to you asap'];
 
 
@@ -105,11 +105,11 @@ export default function ContactPage() {
     const Typing = styled.div`
         display: flex;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         padding-top: 1rem;
         @media screen and (max-width: 569px) and (orientation:portrait){
-            /* font-size: 1.5rem; */
+            font-size: 1rem;
         }
         ${p => p.inView && location.pathname === '/' && css`
             animation: ${FadeUp} 2s forwards;

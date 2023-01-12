@@ -1,23 +1,16 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { InView } from 'react-intersection-observer';
 
 import Heading from './styledcomponents/HeadingStyle';
 import FadeUp from './styledcomponents/FadeUp';
 import FadeIn from './styledcomponents/FadeIn';
+import LittleWiggle from './styledcomponents/LittleWiggle';
 
 const ProjectsPage = () => {
     const location = useLocation();
-
-    const tiltShaking = keyframes`
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(2deg); }
-        50% { transform: rotate(0eg); }
-        75% { transform: rotate(-2deg); }
-        100% { transform: rotate(0deg); }
-    `
 
     const ProjectsContent = styled.div`
         text-align: center;
@@ -27,7 +20,13 @@ const ProjectsPage = () => {
     `
 
     const Portfolio = styled.div`
+        margin-left: 1rem;
+        margin-right: 1rem;
         display: flex;
+        flex: 1;
+        flex-shrink: 1;
+        gap: 1rem;
+        flex-grow: 3;
         justify-content: space-evenly;
         text-align: center;
         height: 80vh;
@@ -41,7 +40,7 @@ const ProjectsPage = () => {
     const ImageContainer = styled.div`
         margin: 1rem;
         &#kid {
-            margin: 2rem;
+            /* margin: 2rem; */
         }
     `
 
@@ -57,7 +56,7 @@ const ProjectsPage = () => {
         background-color: rgb(49, 49, 49);
         border: 5px solid rgb(36, 36, 36);
         border-radius: 1.5rem;
-        margin: 1rem;
+        /* margin: 1rem; */
         /* margin-bottom: 3rem; */
         max-width: 26rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -65,13 +64,13 @@ const ProjectsPage = () => {
         &:hover {
             border: 5px solid rgb(27, 27, 27);
             background-color: rgb(37, 37, 37);
-            animation: ${tiltShaking} 0.3s infinite;
+            animation: ${LittleWiggle} 0.3s infinite;
         }
         &#project-id {
             text-decoration: none;
         }
         @media screen and (max-width: 569px) and (orientation:portrait){
-            margin: .1rem;
+            /* margin: .1rem; */
             /* margin-top: 1rem; */
             /* margin-bottom: 3rem; */
         }
@@ -81,7 +80,7 @@ const ProjectsPage = () => {
         opacity: 0;
         text-decoration: none;
         @media screen and (max-width: 569px) and (orientation:portrait){
-            max-width: 95%;
+            /* max-width: 95%; */
         }
         ${p => p.inView && location.pathname === '/' && css`
             animation: ${FadeUp} 2s forwards;
@@ -94,8 +93,9 @@ const ProjectsPage = () => {
     const DescriptionContainer = styled.div`
         border-top: 2px rgb(27, 27, 27) solid;
         padding-top: 1rem;
-        margin: 1rem;
         text-align: center;
+        max-height: 2rem;
+        min-height: 2rem;
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: none;
         }
