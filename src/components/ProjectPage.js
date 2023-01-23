@@ -30,6 +30,7 @@ const ProjectsPage = () => {
         justify-content: space-evenly;
         text-align: center;
         height: 80vh;
+        margin-top: 1rem;
         /* width: fit-content; */
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: grid;

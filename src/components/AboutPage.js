@@ -128,7 +128,8 @@ const AboutPage = () => {
                         When not studying for University, I code a lot as it has 
                         become sort of a hobby for me. One of the things I 
                         have been coding is this website, amongst other things. This is to showcase some of the 
-                        skills I have already but also hope to build on in future Jobs.
+                        skills I have and hope to build on in a future job. If you want to know more
+                        about me, check out my CV below.
                     </p> 
                 </Paragraph>
                 <SkillsCV>

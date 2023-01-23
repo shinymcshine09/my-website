@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { keyframes, css } from 'styled-components';
 
-import portrait from '../images/portraitwithbkgr.png';
+import portrait from '../images/IMG_1337.jpeg';
 
 import FadeIn from "./styledcomponents/FadeIn";
 import FadeUp from "./styledcomponents/FadeUp";
@@ -61,7 +61,7 @@ const ManageTitle = ({Title}) => {
  * 
  * @param {Typing} param0 hands the styled component for the returned
  * element.
- * @returns the html element that handles the typewriter effect.
+ * @returns the html element that produces the typewriter effect.
  */
 const ManageGreeting = ({Typing}) => {
     let greetings = [
@@ -71,7 +71,7 @@ const ManageGreeting = ({Typing}) => {
         'Good Evening',
         'My name is James Hart',
         'Welcome to my website!',
-        'I hope you enjoy your visit'
+        'I hope you enjoy it here'
     ];
     const [ currentGreeting, setCurrentGreeting ] = useState(greetings[0]);
 
@@ -192,38 +192,56 @@ const HomePage = () => {
 
     const PortraitCC = styled.div`
         width: 100%;
-
-
+        /* border: 2px white solid; */
     `
 
     const PortraitContainer = styled.div`
+        display: flex;
         opacity: 0;
         animation: ${FadeUp} 2s linear forwards;
         width: fit-content;
-        margin-left: 35%;
-        margin-top: -10%;
+        margin-left: 15vw;
+        margin-top: -5%;
         height: fit-content;
         @media screen and (max-width: 735px) and (orientation:portrait){
-            margin-left: 25%;
+            margin-left: 22.5vw;
         }
     `
 
     const Portrait = styled.img`
         filter: saturate(30%);
+        border-radius: 70px;
+        border: 10px rgba(27,27,27,.7) solid;
+        filter: transparent(20%);
+        width: 37vw;
+        min-width: 300px;
+        max-width: 350px;
         @media screen and (max-width: 735px) and (orientation:portrait){
-            width: 250px;
+            width: 55vw;
+        }
+    `
+
+    const TypingCC = styled.div`
+        border: 10px rgba(27,27,27,.7) solid;
+        background-color: rgba(27,27,27,.7);
+        border-radius: 50px;
+        margin-left: 1rem;
+        margin-top: 80px;
+        width: 260px;
+        height: 45px;
+        @media screen and (max-width: 735px) and (orientation:portrait){
+            width: 55vw;
         }
     `
 
     const TypingContainer = styled.div`
         width: fit-content;
-        clear: both;
-        margin-left: 10px;
+        padding: 1rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
 
     const Typing = styled.div`
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         overflow: hidden;
         white-space: nowrap;
@@ -231,6 +249,25 @@ const HomePage = () => {
         border-right: .1em solid orange;
         // does the typewriter animation based on size of greeting
         animation: ${TypingAnimationAlternate} ${p => p.length / 2}s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
+    `
+
+    const BubbleOne = styled.div`
+        border: 10px rgba(27,27,27,.8) solid;
+        border-radius: 50px;
+        background-color: rgba(27,27,27,.5);
+        width: 30px;
+        margin-top: 2rem;
+        /* margin-left: 20px; */
+        padding: 1rem;
+    `
+
+    const BubbleTwo = styled.div`
+        border: 10px rgba(27,27,27,.8) solid;
+        border-radius: 50px;
+        background-color: rgba(27,27,27,.5);
+        width: 1px;
+        margin-top: 1rem;
+        padding: 1rem;
     `
 
     return (
@@ -242,9 +279,13 @@ const HomePage = () => {
             <PortraitCC>
                 <PortraitContainer>
                     <Portrait src={portrait} alt='me'></Portrait>
-                        <TypingContainer>
-                            <ManageGreeting Typing={Typing}/>
-                        </TypingContainer>
+                        <TypingCC>
+                            <TypingContainer>
+                                <ManageGreeting Typing={Typing}/>
+                            </TypingContainer>
+                            <BubbleOne/>
+                            <BubbleTwo/>
+                        </TypingCC>
                 </PortraitContainer>
             </PortraitCC>
         </Body>
