@@ -4,10 +4,10 @@ import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse
 import styled, { css } from 'styled-components';
 import { InView } from 'react-intersection-observer';
 
-import Heading from './styledcomponents/HeadingStyle';
-import FadeUp from './styledcomponents/FadeUp';
-import FadeIn from './styledcomponents/FadeIn';
-import LittleWiggle from './styledcomponents/LittleWiggle';
+import Heading from './CSSEffects/HeadingStyle';
+import FadeUp from './CSSEffects/FadeUp';
+import FadeIn from './CSSEffects/FadeIn';
+import LittleWiggle from './CSSEffects/LittleWiggle';
 
 const ProjectsPage = () => {
     const location = useLocation();
@@ -24,14 +24,11 @@ const ProjectsPage = () => {
         margin-right: 1rem;
         display: flex;
         flex: 1;
-        flex-shrink: 1;
         gap: 1rem;
-        flex-grow: 3;
         justify-content: space-evenly;
         text-align: center;
         height: 80vh;
         margin-top: 1rem;
-        /* width: fit-content; */
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -57,8 +54,6 @@ const ProjectsPage = () => {
         background-color: rgb(49, 49, 49);
         border: 5px solid rgb(36, 36, 36);
         border-radius: 1.5rem;
-        /* margin: 1rem; */
-        /* margin-bottom: 3rem; */
         max-width: 26rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         transition: all 1s;

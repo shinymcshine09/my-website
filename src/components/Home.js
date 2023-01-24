@@ -1,13 +1,13 @@
-import React from "react"
-import styled, { css } from "styled-components"
+import React from "react";
+import styled, { css } from "styled-components";
 
-import HomePage from "./HomePage"
-import ProjectsPage from "./ProjectPage"
-import AboutPage from "./AboutPage"
-import ContactPage from "./ContactPage"
+import HomePage from "./HomePage";
+import ProjectsPage from "./ProjectPage";
+import AboutPage from "./AboutPage";
+import ContactPage from "./ContactPage";
 
-import HomeBackground from "../images/codingbackground.jpg"
-import AboutBackground from "../images/IMG_0634.jpeg"
+import HomeBackground from "../images/codingbackground.jpg";
+import AboutBackground from "../images/IMG_0634.jpeg";
 
 const Home = () => {
     const Section = css`

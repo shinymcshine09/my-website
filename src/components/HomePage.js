@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import portrait from '../images/IMG_1337.jpeg';
-
-import FadeIn from "./styledcomponents/FadeIn";
-import FadeUp from "./styledcomponents/FadeUp";
+import FadeIn from "./CSSEffects/FadeIn";
+import TypingAnimationAlternate from "./CSSEffects/TypingAnimationAlternate";
+import CaretAnimation from "./CSSEffects/CaretAnimation";
 
 const ManageName = ({NameHeading}) => {
     const [ isHoveringName, setIsHoveringName ] = useState(false);
@@ -46,8 +45,10 @@ const ManageTitle = ({Title}) => {
     };
 
     return (
-        <div onMouseOver={handleMouseOverTitle} 
-            onMouseOut={handleMouseOutTitle}>
+        <div 
+            onMouseOver={handleMouseOverTitle} 
+            onMouseOut={handleMouseOutTitle}
+        >
             <Title length={title.length}
                 className={isHoveringTitle ? 'full-subtitle' : 'anagram'}>
                     {title}
@@ -56,87 +57,10 @@ const ManageTitle = ({Title}) => {
     )
 }
 
-/**
- * Handles the typed greeting on the homepage.
- * 
- * @param {Typing} param0 hands the styled component for the returned
- * element.
- * @returns the html element that produces the typewriter effect.
- */
-const ManageGreeting = ({Typing}) => {
-    let greetings = [
-        'Hello world!',
-        'Good Morning',
-        'Good Afternoon',
-        'Good Evening',
-        'My name is James Hart',
-        'Welcome to my website!',
-        'I hope you enjoy it here'
-    ];
-    const [ currentGreeting, setCurrentGreeting ] = useState(greetings[0]);
-
-    /**
-     * Changes greeting to the next in the list depending on the current hour
-     * it will decide between the correct greetings.
-     */
-    const changeGreeting = () => {
-        let currentHour = new Date().getHours();
-        if (greetings.indexOf(currentGreeting) === 0 
-            && currentHour < 12 && currentHour >= 0) {
-            setCurrentGreeting(greetings[1])
-        }
-        else if (greetings.indexOf(currentGreeting) === 0 
-                && currentHour < 18 && currentHour > 11) {
-            setCurrentGreeting(greetings[2])
-        }
-        else if (greetings.indexOf(currentGreeting) === 0) {
-            setCurrentGreeting(greetings[3])
-        }
-        else if (greetings.indexOf(currentGreeting) > 0 
-                && greetings.indexOf(currentGreeting) < 4) {
-            setCurrentGreeting(greetings[4])
-        }
-        else if (greetings.indexOf(currentGreeting) + 1 < greetings.length) {
-            setCurrentGreeting(greetings[greetings.indexOf(currentGreeting) + 1]);
-        }
-        else {
-            setCurrentGreeting(greetings[0]);
-        }
-    };
-
-    return (
-        <Typing 
-            key={currentGreeting} 
-            length={currentGreeting.length} 
-            onAnimationEnd={changeGreeting}
-        >
-            <text> {currentGreeting} </text>
-        </Typing>
-    )
-}
-
 const HomePage = () => {
     const Body = styled.body`
         width: 100%;
         height: 100%;
-    `
-
-    const TypingAnimationAlternate = keyframes`
-        0% { width: 0%; }
-        10% { width: 0%; }
-        40% { width: 100%; }
-        60% { width: 100%; }
-        90% { width: 0%; }
-        100% { width: 0%; }
-    `
-
-    const CaretAnimation = keyframes`
-        0% {
-            border-right-color: transparent;
-        }
-        100% {
-            border-right-color: orange;
-        }
     `
 
     const MainHeadingContainer = styled.div`
@@ -190,104 +114,12 @@ const HomePage = () => {
         }
     `
 
-    const PortraitCC = styled.div`
-        width: 100%;
-        /* border: 2px white solid; */
-    `
-
-    const PortraitContainer = styled.div`
-        display: flex;
-        opacity: 0;
-        animation: ${FadeUp} 2s linear forwards;
-        width: fit-content;
-        margin-left: 15vw;
-        margin-top: -5%;
-        height: fit-content;
-        @media screen and (max-width: 735px) and (orientation:portrait){
-            margin-left: 22.5vw;
-        }
-    `
-
-    const Portrait = styled.img`
-        filter: saturate(30%);
-        border-radius: 70px;
-        border: 10px rgba(27,27,27,.7) solid;
-        filter: transparent(20%);
-        width: 37vw;
-        min-width: 300px;
-        max-width: 350px;
-        @media screen and (max-width: 735px) and (orientation:portrait){
-            width: 55vw;
-        }
-    `
-
-    const TypingCC = styled.div`
-        border: 10px rgba(27,27,27,.7) solid;
-        background-color: rgba(27,27,27,.7);
-        border-radius: 50px;
-        margin-left: 1rem;
-        margin-top: 80px;
-        width: 260px;
-        height: 45px;
-        @media screen and (max-width: 735px) and (orientation:portrait){
-            width: 55vw;
-        }
-    `
-
-    const TypingContainer = styled.div`
-        width: fit-content;
-        padding: 1rem;
-        text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    `
-
-    const Typing = styled.div`
-        font-size: 1.2rem;
-        text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 0;
-        border-right: .1em solid orange;
-        // does the typewriter animation based on size of greeting
-        animation: ${TypingAnimationAlternate} ${p => p.length / 2}s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
-    `
-
-    const BubbleOne = styled.div`
-        border: 10px rgba(27,27,27,.8) solid;
-        border-radius: 50px;
-        background-color: rgba(27,27,27,.5);
-        width: 30px;
-        margin-top: 2rem;
-        /* margin-left: 20px; */
-        padding: 1rem;
-    `
-
-    const BubbleTwo = styled.div`
-        border: 10px rgba(27,27,27,.8) solid;
-        border-radius: 50px;
-        background-color: rgba(27,27,27,.5);
-        width: 1px;
-        margin-top: 1rem;
-        padding: 1rem;
-    `
-
     return (
         <Body>
             <MainHeadingContainer>
                 <ManageName NameHeading={NameHeading} />
                 <ManageTitle Title={SubTitle} />
             </MainHeadingContainer>
-            <PortraitCC>
-                <PortraitContainer>
-                    <Portrait src={portrait} alt='me'></Portrait>
-                        <TypingCC>
-                            <TypingContainer>
-                                <ManageGreeting Typing={Typing}/>
-                            </TypingContainer>
-                            <BubbleOne/>
-                            <BubbleTwo/>
-                        </TypingCC>
-                </PortraitContainer>
-            </PortraitCC>
         </Body>
     )
 }
