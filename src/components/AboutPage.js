@@ -5,10 +5,10 @@ import img from '../images/IMG_0634.jpeg';
 import { InView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
 
-import Heading from "./CSSEffects/HeadingStyle";
-import FadeUp from "./CSSEffects/FadeUp";
-import FadeIn from "./CSSEffects/FadeIn";
-import LittleWiggle from "./CSSEffects/LittleWiggle";
+import Heading from "./styledcomponents/HeadingStyle";
+import FadeUp from "./csseffects/FadeUp";
+import FadeIn from "./csseffects/FadeIn";
+import LittleWiggle from "./csseffects/LittleWiggle";
 
 import CVIcon from "./icons/CVIcon";
 
@@ -47,7 +47,8 @@ const AboutPage = () => {
 
     const Paragraph = styled.div`
         width: fit-content;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.6);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         padding: 1rem;
         padding-left: 2rem;
         padding-right: 2rem;
@@ -68,7 +69,8 @@ const AboutPage = () => {
         line-height: normal;
         width: 100%;
         border-radius: 20px;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.6);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         font-weight: bold;
     `
 
@@ -85,7 +87,8 @@ const AboutPage = () => {
     const CV = styled(Link)`
         padding-top: 1rem;
         width: 100%;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.6);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         border-radius: 20px;
         text-align: center;
         justify-content: center;

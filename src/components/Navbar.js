@@ -129,6 +129,7 @@ export default function Navbar() {
     top: 3.5rem;
     position: fixed;
     font-size: 1.1rem;
+    color: orange;
   `
 
   const ButtonStyles = styled.button`

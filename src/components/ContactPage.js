@@ -4,12 +4,12 @@ import styled, { css } from "styled-components";
 import { InView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
 
-import Heading from "./CSSEffects/HeadingStyle";
-import FadeUp from "./CSSEffects/FadeUp";
-import FadeIn from "./CSSEffects/FadeIn";
-import TypewriterEffect from "./JavascriptEffects/TypewriterEffect";
+import Heading from "./styledcomponents/HeadingStyle";
+import FadeUp from "./csseffects/FadeUp";
+import FadeIn from "./csseffects/FadeIn";
+import TypewriterEffect from "./javascripteffects/TypewriterEffect";
 
-import Caret from "./JavascriptEffects/Caret";
+import Caret from "./javascripteffects/Caret";
 
 
 function FormInput({Label, UserInput, InputContainer, Input, UserMessage}) {

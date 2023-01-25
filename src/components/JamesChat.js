@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./CSSEffects/FadeLeft";
-import TypingAnimationAlternate from "./CSSEffects/TypingAnimationAlternate";
-import CaretAnimation from "./CSSEffects/CaretAnimation";
+import FadeLeft from "./csseffects/FadeLeft";
+import TypingAnimationAlternate from "./csseffects/TypingAnimationAlternate";
+import CaretAnimation from "./csseffects/CaretAnimation";
 
 /**
  * Handles the typed greeting on the homepage.
@@ -17,46 +17,67 @@ import CaretAnimation from "./CSSEffects/CaretAnimation";
  * @returns the html element that produces the typewriter effect.
  */
 const ManageGreeting = ({Typing}) => {
-    const location = useLocation()
-
+    const location = useLocation();
+    
     let greetings = [
-        'Hello visiter!',
-        'Good Morning',
-        'Good Afternoon',
-        'Good Evening',
-        'My name is James Hart',
-        'Welcome to my website!',
-        'I hope you enjoy my site',
+        [
+            'Hello Visitor!',
+            'My name is James Hart',
+            'Welcome to my website!',
+            'I hope you enjoy it',
+            "I'm an automated guide",
+            'I will show you around',
+            'This is the home page',
+            'This is all pages in one'
+        ],
+        [
+            'These are my projects',
+            'Please have a look',
+            "The website's good",
+            'The snake game is fun'
+        ],
+        [
+            'This page is about me',
+            'About real life James',
+            'Not guide bot James :-)',
+            'Look at my CV for more'
+        ],
+        [
+            'Here you can contact me',
+            'But do not feel obliged',
+            'We could be pen pals',
+        ]
     ];
 
-    const [ currentGreeting, setCurrentGreeting ] = useState(greetings[0]);
+    const [ greetingList, setGreetingList ] = useState(greetings[0]);
 
-    /**
-     * Changes greeting to the next in the list depending on the current hour
-     * it will decide between the correct greetings.
-     */
-    const changeGreeting = () => {
-        let currentHour = new Date().getHours();
-        if (greetings.indexOf(currentGreeting) === 0 
-            && currentHour < 12 && currentHour >= 0) {
-            setCurrentGreeting(greetings[1])
+    useEffect(() => {
+        if (location.pathname === '/') {
+            setGreetingList(greetings[0]);
         }
-        else if (greetings.indexOf(currentGreeting) === 0 
-                && currentHour < 18 && currentHour > 11) {
-            setCurrentGreeting(greetings[2])
+        else if (location.pathname === '/projects') {
+            setGreetingList(greetings[1]);
         }
-        else if (greetings.indexOf(currentGreeting) === 0) {
-            setCurrentGreeting(greetings[3])
-        }
-        else if (greetings.indexOf(currentGreeting) > 0 
-                && greetings.indexOf(currentGreeting) < 4) {
-            setCurrentGreeting(greetings[4])
-        }
-        else if (greetings.indexOf(currentGreeting) + 1 < greetings.length) {
-            setCurrentGreeting(greetings[greetings.indexOf(currentGreeting) + 1]);
+        else if (location.pathname === '/about') {
+            setGreetingList(greetings[2]);
         }
         else {
-            setCurrentGreeting(greetings[0]);
+            setGreetingList(greetings[3]);
+        }
+    }, [location.pathname]);
+
+    const [ currentGreeting, setCurrentGreeting ] = useState(greetingList[0]);
+
+    /**
+     * Changes greeting to the next in the current list.
+     */
+    const changeGreeting = () => {
+        // let currentHour = new Date().getHours();
+        if (greetingList.indexOf(currentGreeting) + 1 < greetingList.length) {
+            setCurrentGreeting(greetingList[greetingList.indexOf(currentGreeting) + 1]);
+        }
+        else {
+            setCurrentGreeting(greetingList[0]);
         }
     };
 
@@ -66,7 +87,9 @@ const ManageGreeting = ({Typing}) => {
             length={currentGreeting.length} 
             onAnimationEnd={changeGreeting}
         >
-            <text> {currentGreeting} </text>
+            <text>
+                {currentGreeting} 
+            </text>
         </Typing>
     )
 }

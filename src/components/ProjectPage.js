@@ -4,10 +4,10 @@ import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse
 import styled, { css } from 'styled-components';
 import { InView } from 'react-intersection-observer';
 
-import Heading from './CSSEffects/HeadingStyle';
-import FadeUp from './CSSEffects/FadeUp';
-import FadeIn from './CSSEffects/FadeIn';
-import LittleWiggle from './CSSEffects/LittleWiggle';
+import Heading from './styledcomponents/HeadingStyle';
+import FadeUp from './csseffects/FadeUp';
+import FadeIn from './csseffects/FadeIn';
+import LittleWiggle from './csseffects/LittleWiggle';
 
 const ProjectsPage = () => {
     const location = useLocation();
@@ -37,9 +37,6 @@ const ProjectsPage = () => {
 
     const ImageContainer = styled.div`
         margin: 1rem;
-        &#kid {
-            /* margin: 2rem; */
-        }
     `
 
     const Image = styled.img`
@@ -61,14 +58,6 @@ const ProjectsPage = () => {
             border: 5px solid rgb(27, 27, 27);
             background-color: rgb(37, 37, 37);
             animation: ${LittleWiggle} 0.3s infinite;
-        }
-        &#project-id {
-            text-decoration: none;
-        }
-        @media screen and (max-width: 569px) and (orientation:portrait){
-            /* margin: .1rem; */
-            /* margin-top: 1rem; */
-            /* margin-bottom: 3rem; */
         }
     `
 
@@ -97,6 +86,10 @@ const ProjectsPage = () => {
         }
     `
 
+    const ProjectTitle = styled.h4`
+        color: orange;
+    `
+
     const Description = styled.text`
         padding: 1rem;
         font-size: .8rem;
@@ -123,11 +116,11 @@ const ProjectsPage = () => {
                                         <ImageContainer>
                                             <Image src={require('../images/coding.png')} alt="WebsiteIcon"/>
                                         </ImageContainer>
-                                        <h4 
+                                        <ProjectTitle 
                                             id="project-id"
                                         >
                                             My Website Code
-                                        </h4>
+                                        </ProjectTitle>
                                         <DescriptionContainer>
                                             <Description>This website's code, written in react by Me</Description>
                                         </DescriptionContainer>
@@ -145,7 +138,7 @@ const ProjectsPage = () => {
                                         <ImageContainer>
                                             <Image src={require('../images/snakehead.png')} alt="SnakeHead"/>
                                         </ImageContainer>
-                                        <h4 id="project-id">Java Snake Game</h4>
+                                        <ProjectTitle id="project-id">Java Snake Game</ProjectTitle>
                                         <DescriptionContainer>
                                             <Description>A version of Nokia's game Snake, written in Java</Description>
                                         </DescriptionContainer>
@@ -157,7 +150,7 @@ const ProjectsPage = () => {
                                         <ImageContainer id='kid'>
                                             <Image src={require("../images/134164_money_exchange_cash_currency_icon.png")} alt="CurrencyImg"/>
                                         </ImageContainer>
-                                        <h4 id="project-id">Currency Converter</h4>
+                                        <ProjectTitle id="project-id">Currency Converter</ProjectTitle>
                                         <DescriptionContainer>
                                             <Description>A web scraper with a graphical user interface</Description>
                                         </DescriptionContainer>

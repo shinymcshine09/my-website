@@ -6,7 +6,7 @@ const FadeUp = keyframes`
         -webkit-transform: translateY(50%); 
     }
     100% { 
-        opacity: .95; 
+        opacity: 1; 
     }
 `
 
