@@ -4,7 +4,6 @@ import FadeUp from "../csseffects/FadeUp";
 import FadeIn from "../csseffects/FadeIn";
 
 const Heading = styled.h1`
-    /* font-weight: 300; */
     text-align: center;
     font-size: 3rem;
     padding-top: 9rem;
