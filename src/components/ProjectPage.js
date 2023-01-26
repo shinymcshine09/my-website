@@ -8,6 +8,7 @@ import Heading from './styledcomponents/HeadingStyle';
 import FadeUp from './csseffects/FadeUp';
 import FadeIn from './csseffects/FadeIn';
 import LittleWiggle from './csseffects/LittleWiggle';
+import ChevronDownIcon from './icons/ChevronDownIcon';
 
 const ProjectsPage = () => {
     const location = useLocation();
@@ -25,7 +26,7 @@ const ProjectsPage = () => {
         display: flex;
         flex: 1;
         gap: 1rem;
-        justify-content: space-evenly;
+        justify-content: center;
         text-align: center;
         height: 80vh;
         margin-top: 1rem;
@@ -108,7 +109,7 @@ const ProjectsPage = () => {
                                 <Links 
                                     ref={ref} 
                                     inView={inView} 
-                                    href="https://github.com/shinymcshine09/my-app.git" 
+                                    href="https://github.com/shinymcshine09/my-website.git" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                 >

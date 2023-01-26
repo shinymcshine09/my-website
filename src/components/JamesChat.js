@@ -6,8 +6,8 @@ import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
 import FadeLeft from "./csseffects/FadeLeft";
-import TypingAnimationAlternate from "./csseffects/TypingAnimationAlternate";
-import CaretAnimation from "./csseffects/CaretAnimation";
+import TypewriterEffect from "./javascripteffects/TypewriterEffect";
+import Caret from "./javascripteffects/Caret";
 
 /**
  * Handles the typed greeting on the homepage.
@@ -16,7 +16,7 @@ import CaretAnimation from "./csseffects/CaretAnimation";
  * element.
  * @returns the html element that produces the typewriter effect.
  */
-const ManageGreeting = ({Typing}) => {
+const ManageGreeting = ({Typing, TypingCC}) => {
     const location = useLocation();
     
     let greetings = [
@@ -33,7 +33,7 @@ const ManageGreeting = ({Typing}) => {
         [
             'These are my projects',
             'Please have a look',
-            "The website's good",
+            "The website's good :-)",
             'The snake game is fun'
         ],
         [
@@ -66,31 +66,11 @@ const ManageGreeting = ({Typing}) => {
         }
     }, [location.pathname]);
 
-    const [ currentGreeting, setCurrentGreeting ] = useState(greetingList[0]);
-
-    /**
-     * Changes greeting to the next in the current list.
-     */
-    const changeGreeting = () => {
-        // let currentHour = new Date().getHours();
-        if (greetingList.indexOf(currentGreeting) + 1 < greetingList.length) {
-            setCurrentGreeting(greetingList[greetingList.indexOf(currentGreeting) + 1]);
-        }
-        else {
-            setCurrentGreeting(greetingList[0]);
-        }
-    };
-
     return (
-        <Typing 
-            key={currentGreeting} 
-            length={currentGreeting.length} 
-            onAnimationEnd={changeGreeting}
-        >
-            <text>
-                {currentGreeting} 
-            </text>
-        </Typing>
+        <TypingCC>
+            <TypewriterEffect key={greetingList} Greetings={greetingList} ContainerStyle={Typing}/>
+            <Caret />
+        </TypingCC>
     )
 }
 
@@ -112,6 +92,12 @@ export default function JamesChat() {
         ${noHelper && css`
             display: none;
         `}
+        @media screen and (max-width: 550px) and (orientation:portrait){
+            transform: scale(.8);
+            // keeps james chat on the right hand side
+            transform-origin: bottom right;
+            margin-right: 0rem;
+        }
     `
 
     const Portrait = styled.img`
@@ -135,9 +121,14 @@ export default function JamesChat() {
         width: 250px;
         height: 40px;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        @media screen and (max-width: 550px) and (orientation:portrait){
-            display: none;
-        }
+        /* @media screen and (max-width: 550px) and (orientation:portrait){
+            transform: scale(.5);
+        } */
+    `
+
+    const TypingCC = styled.div`
+        // puts caret after typing effect
+        display: flex;
     `
 
     const TypingContainer = styled.div`
@@ -145,17 +136,14 @@ export default function JamesChat() {
         padding: 1rem;
         margin-left: 5px;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        display: flex;
     `
 
     const Typing = styled.div`
         font-size: 1rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        overflow: hidden;
         white-space: nowrap;
-        width: 0;
-        border-right: .1em solid orange;
-        // does the typewriter animation based on size of greeting
-        animation: ${TypingAnimationAlternate} ${p => p.length / 2}s forwards steps(${(props) => props.length}, end), ${CaretAnimation} 1s infinite;
+        height: 1rem;
     `
 
     const CloseBubble = styled.button`
@@ -221,7 +209,7 @@ export default function JamesChat() {
             <PortraitContainer>
                 <SpeechBubble>
                     <TypingContainer>
-                        <ManageGreeting Typing={Typing}/>
+                        <ManageGreeting Typing={Typing} TypingCC={TypingCC}/>
                     </TypingContainer>
                     <BubbleOne/>
                     <BubbleTwo/>

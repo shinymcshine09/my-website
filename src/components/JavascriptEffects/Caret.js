@@ -14,6 +14,8 @@ export default function Caret() {
     const CaretStyle = styled.text`
         color: orange;
         animation: ${CaretAnimation} 1s infinite;
+        //centers caret
+        margin-top: -2px;
     `
 
     return (

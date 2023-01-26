@@ -28,8 +28,8 @@ export default function TypewriterEffect({Greetings, SecondGreetings, ContainerS
         if (output === '' && !isTyping) {
             setTimeout (() => {
                 setIsTyping(true);
-                if (listIndex === 0) {
-                    setListIndex(1);
+                if (listIndex > - 1 && (listIndex < greetings.length - 1)) {
+                    setListIndex(listIndex + 1);
                 }
                 else {
                     setListIndex(0);
@@ -39,7 +39,7 @@ export default function TypewriterEffect({Greetings, SecondGreetings, ContainerS
         if (isFormSent) {
             setGreetings(afterFormSent);
         }
-    })
+    }, [output, isTyping])
 
     return (
         <ContainerStyle>
