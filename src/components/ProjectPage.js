@@ -8,7 +8,6 @@ import Heading from './styledcomponents/HeadingStyle';
 import FadeUp from './csseffects/FadeUp';
 import FadeIn from './csseffects/FadeIn';
 import LittleWiggle from './csseffects/LittleWiggle';
-import ChevronDownIcon from './icons/ChevronDownIcon';
 
 const ProjectsPage = () => {
     const location = useLocation();
@@ -24,16 +23,23 @@ const ProjectsPage = () => {
         margin-left: 1rem;
         margin-right: 1rem;
         display: flex;
-        flex: 1;
-        gap: 1rem;
+        gap: 2rem;
         justify-content: center;
         text-align: center;
-        height: 80vh;
-        margin-top: 1rem;
+        margin-top: 1vh;
+        margin-bottom: 20rem;
+        height: 70vh;
+        opacity: 0;
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
+        ${p => p.inView && location.pathname === '/' && css`
+            animation: ${FadeUp} 2s forwards;
+        `}
+        ${location.pathname === '/projects' && css`
+            animation: ${FadeIn} 2s forwards;
+        `}
     `
 
     const ImageContainer = styled.div`
@@ -63,17 +69,7 @@ const ProjectsPage = () => {
     `
 
     const Links = styled.a`
-        opacity: 0;
         text-decoration: none;
-        @media screen and (max-width: 569px) and (orientation:portrait){
-            /* max-width: 95%; */
-        }
-        ${p => p.inView && location.pathname === '/' && css`
-            animation: ${FadeUp} 2s forwards;
-        `}
-        ${location.pathname === '/projects' && css`
-            animation: ${FadeIn} 2s forwards;
-        `}
     `
 
     const DescriptionContainer = styled.div`
@@ -99,16 +95,18 @@ const ProjectsPage = () => {
     return (
         <InView triggerOnce>
             {({ inView, ref }) => (
-                <ProjectsContent>
+                <ProjectsContent 
+                >
                     <div>
                         <Heading location={location} ref={ref} inView={inView}>Projects</Heading>
                     </div>
                     <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1}>
                         <MouseParallaxChild factorX={0.1} factorY={0.1}>
-                            <Portfolio>
-                                <Links 
-                                    ref={ref} 
-                                    inView={inView} 
+                            <Portfolio 
+                                ref={ref} 
+                                inView={inView}
+                            >
+                                <Links
                                     href="https://github.com/shinymcshine09/my-website.git" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
@@ -128,9 +126,7 @@ const ProjectsPage = () => {
                                         <br />
                                     </Project>
                                 </Links>
-                                <Links 
-                                    ref={ref} 
-                                    inView={inView} 
+                                <Links
                                     href="https://github.com/shinymcshine09/SnakeGame.git" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
@@ -146,7 +142,7 @@ const ProjectsPage = () => {
                                         <br />
                                     </Project>
                                 </Links>
-                                <Links ref={ref} inView={inView} href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
+                                <Links href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
                                     <Project>
                                         <ImageContainer id='kid'>
                                             <Image src={require("../images/134164_money_exchange_cash_currency_icon.png")} alt="CurrencyImg"/>

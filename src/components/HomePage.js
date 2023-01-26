@@ -2,7 +2,6 @@ import React from "react";
 import styled from 'styled-components';
 
 import FadeIn from "./csseffects/FadeIn";
-import ChevronDownIcon from "./icons/ChevronDownIcon";
 
 const HomePage = () => {
     const Body = styled.body`
@@ -46,11 +45,6 @@ const HomePage = () => {
         }
     `
 
-    const Chevron = styled.div`
-        min-height: 48vh;
-        position: relative;
-    `
-
     return (
         <Body>
             <MainHeadingContainer>
@@ -61,9 +55,6 @@ const HomePage = () => {
                         Aspiring Junior Web Developer
                 </Title>
             </MainHeadingContainer>
-            <Chevron>
-                <ChevronDownIcon />
-            </Chevron>
         </Body>
     )
 }
