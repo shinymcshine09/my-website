@@ -6,7 +6,7 @@ import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
 import FadeLeft from "./FadeLeft.jsx";
-import TypewriterEffect from "./javascripteffects/TypewriterEffect";
+import TypewriterEffect from "./TypewriterEffect";
 import Caret from "./javascripteffects/Caret";
 
 /**
