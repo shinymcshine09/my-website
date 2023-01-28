@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { useLocation } from "react-router-dom";
 
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./csseffects/fadeleft.js";
+// import FadeLeft from "./csseffects/fadeleft.js";
 import TypewriterEffect from "./javascripteffects/TypewriterEffect";
 import Caret from "./javascripteffects/Caret";
 
@@ -46,7 +46,7 @@ const ManageGreeting = ({Typing, TypingCC}) => {
         [
             'Here you can contact me',
             'But do not feel obliged',
-            'We could be pen pals',
+            'We could be pen pals :-)',
         ]
     ];
 
@@ -77,6 +77,16 @@ const ManageGreeting = ({Typing, TypingCC}) => {
 
 export default function JamesChat() {
     const [ noHelper, setNoHelper ] = useState(false);
+
+    const FadeLeft = keyframes`
+        0% { 
+            opacity: 0; 
+            -webkit-transform: translateX(50%); 
+        }
+        100% { 
+            opacity: .95; 
+        }
+    `
 
     const PortraitContainer = styled.div`
         position: fixed;
