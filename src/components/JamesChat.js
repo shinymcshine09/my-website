@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-// import FadeLeft from "./csseffects/FadeLeft.js";
+import FadeLeft from "./csseffects/FadeLeft.js";
 import TypewriterEffect from "./javascripteffects/TypewriterEffect";
 import Caret from "./javascripteffects/Caret";
 
@@ -85,7 +85,7 @@ export default function JamesChat() {
         z-index: 3;
         display: flex;
         opacity: 0;
-        /* animation: ${FadeLeft} 1s linear forwards; */
+        animation: ${FadeLeft} 1s linear forwards;
         margin: 2rem;
         // so i can scroll while hovering over this element
         height: 1px;
