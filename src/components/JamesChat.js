@@ -89,7 +89,7 @@ export default function JamesChat() {
         margin: 2rem;
         // so i can scroll while hovering over this element
         height: 1px;
-        margin-bottom: 14rem;
+        margin-bottom: 15rem;
         ${noHelper && css`
             display: none;
         `}
@@ -98,6 +98,7 @@ export default function JamesChat() {
             // keeps james chat on the right hand side
             transform-origin: bottom right;
             /* margin-right: 0rem; */
+            margin-bottom: 11rem;
         }
     `
 
