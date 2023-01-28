@@ -93,13 +93,12 @@ export default function JamesChat() {
         ${noHelper && css`
             display: none;
         `}
-        max-width: 100vw;
-        /* @media screen and (max-width: 550px) and (orientation:portrait){
-            transform: scale(.8);
+        @media screen and (max-width: 550px) and (orientation:portrait){
+            transform: scale(.7);
             // keeps james chat on the right hand side
             transform-origin: bottom right;
-            margin-right: 0rem;
-        } */
+            /* margin-right: 0rem; */
+        }
     `
 
     const Portrait = styled.img`
