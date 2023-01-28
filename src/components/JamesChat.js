@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./csseffects/FadeLeft.js";
+import FadeLeft from "./csseffects/FadeLeft.jsx";
 import TypewriterEffect from "./javascripteffects/TypewriterEffect";
 import Caret from "./javascripteffects/Caret";
 
