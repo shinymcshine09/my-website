@@ -10,7 +10,7 @@ import FadeUp from "./FadeUp";
 import FadeIn from "./FadeIn";
 import LittleWiggle from "./LittleWiggle";
 
-import CVIcon from "./CVIcon";
+import CVIcon from "./icons/CVIcon";
 
 import CVpdf from "../images/CV.pdf";
 
