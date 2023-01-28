@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./csseffects/FadeLeft";
+import FadeLeft from "./csseffects/FadeLeft.js";
 import TypewriterEffect from "./javascripteffects/TypewriterEffect";
 import Caret from "./javascripteffects/Caret";
 
