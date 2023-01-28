@@ -24,6 +24,7 @@ const ManageGreeting = ({Typing, TypingCC}) => {
             'Hello Visitor!',
             'My name is James Hart',
             'Welcome to my website!',
+            'Scroll down for more',
             'I hope you enjoy it',
             "I'm an automated guide",
             'I will show you around',

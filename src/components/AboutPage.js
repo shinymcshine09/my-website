@@ -47,7 +47,7 @@ const AboutPage = () => {
 
     const Paragraph = styled.div`
         width: fit-content;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.5);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         padding: 1rem;
         padding-left: 2rem;
@@ -69,7 +69,7 @@ const AboutPage = () => {
         line-height: normal;
         width: 100%;
         border-radius: 20px;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.5);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         font-weight: bold;
     `
@@ -87,7 +87,7 @@ const AboutPage = () => {
     const CV = styled(Link)`
         padding-top: 1rem;
         width: 100%;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.5);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         border-radius: 20px;
         text-align: center;

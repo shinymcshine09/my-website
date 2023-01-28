@@ -27,7 +27,7 @@ const ProjectsPage = () => {
         justify-content: center;
         text-align: center;
         margin-top: 1vh;
-        margin-bottom: 20rem;
+        margin-bottom: 10rem;
         height: 70vh;
         opacity: 0;
         @media screen and (max-width: 569px) and (orientation:portrait){
@@ -73,11 +73,12 @@ const ProjectsPage = () => {
     `
 
     const DescriptionContainer = styled.div`
-        border-top: 2px rgb(27, 27, 27) solid;
+        border-top: 2px rgb(36, 36, 36) solid;
+        width: 95%;
         padding-top: 1rem;
         text-align: center;
-        max-height: 2rem;
-        min-height: 2rem;
+        max-height: 2.5rem;
+        min-height: 2.5rem;
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: none;
         }
