@@ -4,10 +4,10 @@ import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse
 import styled, { css } from 'styled-components';
 import { InView } from 'react-intersection-observer';
 
-import Heading from './styledcomponents/HeadingStyle';
-import FadeUp from './csseffects/FadeUp';
-import FadeIn from './csseffects/FadeIn';
-import LittleWiggle from './csseffects/LittleWiggle';
+import Heading from './HeadingStyle';
+import FadeUp from './FadeUp';
+import FadeIn from './FadeIn';
+import LittleWiggle from './LittleWiggle';
 
 const ProjectsPage = () => {
     const location = useLocation();

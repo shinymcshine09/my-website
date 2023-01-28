@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
-import CrossIcon from "./icons/CrossIcon";
-import ChevronLeftIcon from "./icons/ChevronLeftIcon";
+import CrossIcon from "./CrossIcon";
+import ChevronLeftIcon from "./ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./FadeLeft.jsx";
+import FadeLeft from "./FadeLeft";
 import TypewriterEffect from "./TypewriterEffect";
 import Caret from "./Caret";
 
