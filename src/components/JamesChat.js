@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
 import CrossIcon from "./CrossIcon";
-import ChevronLeftIcon from "./ChevronLeftIcon";
+import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
 import FadeLeft from "./FadeLeft";
 import TypewriterEffect from "./TypewriterEffect";
