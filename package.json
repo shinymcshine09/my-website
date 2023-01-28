@@ -20,11 +20,11 @@
     "web-vitals": "^2.1.4"
   },
   "engines": {
-    "node": "19.0.1",
+    "node": "18.2.0",
     "npm": "8.19.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
