@@ -7,7 +7,7 @@ import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
 import FadeLeft from "./FadeLeft.jsx";
 import TypewriterEffect from "./TypewriterEffect";
-import Caret from "./javascripteffects/Caret";
+import Caret from "./Caret";
 
 /**
  * Handles the typed greeting on the homepage.
