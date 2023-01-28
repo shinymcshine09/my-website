@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useLocation } from "react-router-dom";
 
-import CrossIcon from "./CrossIcon";
+import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
 import portrait from "../images/IMG_1337.jpeg";
-import FadeLeft from "./FadeLeft";
+import FadeLeft from "./csseffects/FadeLeft";
 import TypewriterEffect from "./TypewriterEffect";
 import Caret from "./Caret";
 
@@ -93,12 +93,13 @@ export default function JamesChat() {
         ${noHelper && css`
             display: none;
         `}
-        @media screen and (max-width: 550px) and (orientation:portrait){
+        max-width: 100vw;
+        /* @media screen and (max-width: 550px) and (orientation:portrait){
             transform: scale(.8);
             // keeps james chat on the right hand side
             transform-origin: bottom right;
             margin-right: 0rem;
-        }
+        } */
     `
 
     const Portrait = styled.img`

@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
 
-import HomeIcon from "./HomeIcon";
-import ContactIcon from "./ContactIcon";
-import ProjectsIcon from "./ProjectsIcon";
+import HomeIcon from "./icons/HomeIcon";
+import ContactIcon from "./icons/ContactIcon";
+import ProjectsIcon from "./icons/ProjectsIcon";
 import AboutIcon from "./icons/AboutIcon";
 
 function clickOutsideAlerter(ref, setIsNavExpanded) {

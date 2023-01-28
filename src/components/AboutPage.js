@@ -5,10 +5,10 @@ import img from '../images/IMG_0634.jpeg';
 import { InView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
 
-import Heading from "./HeadingStyle";
-import FadeUp from "./FadeUp";
-import FadeIn from "./FadeIn";
-import LittleWiggle from "./LittleWiggle";
+import Heading from "./styledcomponents/HeadingStyle";
+import FadeUp from "./csseffects/FadeUp";
+import FadeIn from "./csseffects/FadeIn";
+import LittleWiggle from "./csseffects/LittleWiggle";
 
 import CVIcon from "./icons/CVIcon";
 

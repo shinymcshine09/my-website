@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-import FadeUp from "./FadeUp";
-import FadeIn from "./FadeIn";
+import FadeUp from "../csseffects/FadeUp";
+import FadeIn from "../csseffects/FadeIn";
 
 const Heading = styled.h1`
     text-align: center;

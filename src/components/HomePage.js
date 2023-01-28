@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 
-import FadeIn from "./FadeIn";
+import FadeIn from "./csseffects/FadeIn";
 
 const HomePage = () => {
     const Body = styled.body`
