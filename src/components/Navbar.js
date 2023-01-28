@@ -5,7 +5,7 @@ import styled, { css, keyframes } from "styled-components";
 import HomeIcon from "./HomeIcon";
 import ContactIcon from "./ContactIcon";
 import ProjectsIcon from "./ProjectsIcon";
-import AboutIcon from "./AboutIcon";
+import AboutIcon from "./icons/AboutIcon";
 
 function clickOutsideAlerter(ref, setIsNavExpanded) {
   useEffect(() => {
