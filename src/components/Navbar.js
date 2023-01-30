@@ -63,9 +63,6 @@ export default function Navbar() {
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: end;
-    @media screen and (max-width: 640px) and (orientation:portrait){
-      height: 28px;
-    }
   `
 
   const NavLinks = styled.div`
@@ -136,7 +133,7 @@ export default function Navbar() {
     margin-right: 1.5rem;
     border-radius: 8px 8px;
     border-style: hidden;
-    width: 2.5rem;
+    height: 29px;
     ${props => props.className === "hamburger" && css`
       transition: background 1s, color 1s;
       background: transparent;
@@ -150,22 +147,20 @@ export default function Navbar() {
       }
       @media screen and (max-width: 640px) and (orientation:portrait) {
         display: flex;
-        justify-content: center;
       }
     `}
     ${props => props.className === "clicked-hamburger" && css`
       display: flex;
-      justify-content: center;
       @media screen and (min-width: 640px) and (orientation:portrait) {
         display: none;
       }
       & #kid ${!isNavExpanded} {
-        width: 100%;
+        height: 100%;
         filter: invert(0);
       }
     `}
     & #kid ${isNavExpanded} {
-      width: 100%;
+      height: 100%;
       filter: invert(1);
       transition: filter 1s;
     }
@@ -187,7 +182,16 @@ export default function Navbar() {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <svg id="kid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>        </ButtonStyles>
+          <svg 
+            id="kid" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 448 512"
+          >
+            <path 
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            />
+          </svg>      
+        </ButtonStyles>
         <NavLinks
           ref={ref}
           className={
