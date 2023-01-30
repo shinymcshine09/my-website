@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+
+import reportWebVitals from './reportWebVitals';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+
 import JamesChat from './components/JamesChat';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: monospace;
+    color:rgb(239, 239, 239);
+  }
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App /><JamesChat />
+      <App /><JamesChat /><GlobalStyle />
     </BrowserRouter>
   </React.StrictMode>
 );

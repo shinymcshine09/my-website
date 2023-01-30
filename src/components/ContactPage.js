@@ -5,11 +5,12 @@ import { InView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
 
 import Heading from "./styledcomponents/HeadingStyle";
+
 import FadeUp from "./csseffects/FadeUp";
 import FadeIn from "./csseffects/FadeIn";
-import TypewriterEffect from "./TypewriterEffect";
 
-import Caret from "./Caret";
+import TypewriterEffect from "./typewritereffect/TypewriterEffect";
+import Caret from "./typewritereffect/Caret";
 
 
 function FormInput({Label, UserInput, InputContainer, Input, UserMessage}) {

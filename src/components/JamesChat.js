@@ -4,10 +4,13 @@ import { useLocation } from "react-router-dom";
 
 import CrossIcon from "./icons/CrossIcon";
 import ChevronLeftIcon from "./icons/ChevronLeftIcon";
+
 import portrait from "../images/IMG_1337.jpeg";
+
 import FadeLeft from "./csseffects/FadeLeft";
-import TypewriterEffect from "./TypewriterEffect";
-import Caret from "./Caret";
+
+import TypewriterEffect from "./typewritereffect/TypewriterEffect";
+import Caret from "./typewritereffect/Caret";
 
 /**
  * Handles the typed greeting on the homepage.

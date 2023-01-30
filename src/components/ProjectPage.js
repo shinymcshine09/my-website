@@ -9,6 +9,10 @@ import FadeUp from './csseffects/FadeUp';
 import FadeIn from './csseffects/FadeIn';
 import LittleWiggle from './csseffects/LittleWiggle';
 
+import WebsiteIcon from '../images/websitecode.png';
+import SnakeIcon from '../images/snakehead.png';
+import CurrencyIcon from '../images/currencyconverter.png';
+
 const ProjectsPage = () => {
     const location = useLocation();
 
@@ -114,7 +118,7 @@ const ProjectsPage = () => {
                                 >
                                     <Project>
                                         <ImageContainer>
-                                            <Image src={require('../images/coding.png')} alt="WebsiteIcon"/>
+                                            <Image src={WebsiteIcon} alt="WebsiteIcon"/>
                                         </ImageContainer>
                                         <ProjectTitle 
                                             id="project-id"
@@ -134,7 +138,7 @@ const ProjectsPage = () => {
                                 >
                                     <Project>
                                         <ImageContainer>
-                                            <Image src={require('../images/snakehead.png')} alt="SnakeHead"/>
+                                            <Image src={SnakeIcon} alt="SnakeHead"/>
                                         </ImageContainer>
                                         <ProjectTitle id="project-id">Java Snake Game</ProjectTitle>
                                         <DescriptionContainer>
@@ -146,7 +150,7 @@ const ProjectsPage = () => {
                                 <Links href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
                                     <Project>
                                         <ImageContainer id='kid'>
-                                            <Image src={require("../images/134164_money_exchange_cash_currency_icon.png")} alt="CurrencyImg"/>
+                                            <Image src={CurrencyIcon} alt="CurrencyImg"/>
                                         </ImageContainer>
                                         <ProjectTitle id="project-id">Currency Converter</ProjectTitle>
                                         <DescriptionContainer>

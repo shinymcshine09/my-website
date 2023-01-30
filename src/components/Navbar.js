@@ -6,6 +6,7 @@ import HomeIcon from "./icons/HomeIcon";
 import ContactIcon from "./icons/ContactIcon";
 import ProjectsIcon from "./icons/ProjectsIcon";
 import AboutIcon from "./icons/AboutIcon";
+import HamburgerIcon from "./icons/HamburgerIcon";
 
 import Pop from "./csseffects/Pop";
 
@@ -41,8 +42,7 @@ export default function Navbar() {
     top: 1rem;
     right: 2rem;
     left: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 30px / 30px;
     font-weight: bold;
@@ -55,6 +55,7 @@ export default function Navbar() {
 
   const NavLinks = styled.div`
     ${props => props.className === "wide-nav" && css`
+      margin-right: -1rem;
       display: flex;
       justify-content: flex-end;
       padding-right: 15px;
@@ -89,9 +90,8 @@ export default function Navbar() {
   const LinkItem = styled.li`
     padding: .5rem;
     border-radius: 2rem;
-    margin-left: 1rem;
     color: rgb(255, 255, 255);
-    transition: background 1s, color 1s;
+    transition: all 1s;
     &:visited {
       color: rgb(255, 255, 255);
     }
@@ -100,7 +100,7 @@ export default function Navbar() {
     }
     & #kid {
       text-decoration: none;
-      transition: background 1s, color 1s;
+      transition: all 1s;
       padding: .5rem;
       border-radius: 2rem;
     }
@@ -110,15 +110,15 @@ export default function Navbar() {
   `
 
   const MyName = styled.text`
-    left: 3.7rem;
-    top: 3.5rem;
-    position: fixed;
-    font-size: 1.1rem;
+    //puts my name to the left of the navbar
+    margin-right: auto;
+    margin-left: .5rem;
+    padding: .5rem;
     color: orange;
   `
 
   const ButtonStyles = styled.button`
-    margin-right: 1.5rem;
+    margin-right: .5rem;
     border-radius: 8px 8px;
     border-style: hidden;
     height: 29px;
@@ -157,11 +157,9 @@ export default function Navbar() {
   return(
     <nav>
       <NavBar> 
-        <li>
-          <MyName>
-            James Hart
-          </MyName>
-        </li>
+        <MyName>
+          James Hart
+        </MyName>
         <ButtonStyles 
           className={
             isNavExpanded ? "clicked-hamburger" : "hamburger"
@@ -170,15 +168,7 @@ export default function Navbar() {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <svg 
-            id="kid" 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 448 512"
-          >
-            <path 
-              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-            />
-          </svg>      
+          <HamburgerIcon id='kid' />   
         </ButtonStyles>
         <NavLinks
           ref={ref}

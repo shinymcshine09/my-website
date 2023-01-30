@@ -6,6 +6,7 @@ import { InView } from "react-intersection-observer";
 import { useLocation } from "react-router-dom";
 
 import Heading from "./styledcomponents/HeadingStyle";
+
 import FadeUp from "./csseffects/FadeUp";
 import FadeIn from "./csseffects/FadeIn";
 import LittleWiggle from "./csseffects/LittleWiggle";
