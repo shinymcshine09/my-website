@@ -160,12 +160,12 @@ export default function Navbar() {
         display: none;
       }
       & #kid ${!isNavExpanded} {
-        height: 100%;
+        width: 100%;
         filter: invert(0);
       }
     `}
     & #kid ${isNavExpanded} {
-      height: 100%;
+      width: 100%;
       filter: invert(1);
       transition: filter 1s;
     }
