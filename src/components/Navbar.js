@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 
 import HomeIcon from "./icons/HomeIcon";
 import ContactIcon from "./icons/ContactIcon";
 import ProjectsIcon from "./icons/ProjectsIcon";
 import AboutIcon from "./icons/AboutIcon";
+
+import Pop from "./csseffects/Pop";
 
 function clickOutsideAlerter(ref, setIsNavExpanded) {
   useEffect(() => {
@@ -25,20 +27,6 @@ export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const ref = useRef();
   clickOutsideAlerter(ref, setIsNavExpanded)
-
-  const Pop = keyframes`
-    0% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    80% {
-      transform: scale(1.07);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  `
 
   const HoverStyle = css`
     filter: invert(1);
