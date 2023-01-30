@@ -113,6 +113,7 @@ export default function Navbar() {
     //puts my name to the left of the navbar
     margin-right: auto;
     margin-left: .5rem;
+    font-size: 1.1rem;
     padding: .5rem;
     color: orange;
   `
