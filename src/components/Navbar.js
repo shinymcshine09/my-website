@@ -61,6 +61,8 @@ export default function Navbar() {
     position: fixed;
     font-family: monospace;
     color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: end;
     @media screen and (max-width: 640px) and (orientation:portrait){
       height: 28px;
     }
@@ -132,9 +134,7 @@ export default function Navbar() {
 
   const ButtonStyles = styled.button`
     ${props => props.className === "hamburger" && css`
-      position: fixed;
-      right: 3.55rem;
-      top: 2.95rem;
+      margin-right: 1.4rem;
       border-radius: 10px 10px;
       border-style: hidden;
       transition: background 1s, color 1s;
@@ -152,9 +152,7 @@ export default function Navbar() {
       }
     `}
     ${props => props.className === "clicked-hamburger" && css`
-      position: fixed;
-      right: 3.55rem;
-      top: 2.95rem;
+      margin-right: 1.4rem;
       border-radius: 10px 10px;
       border-style: hidden;
       display: flex;
@@ -162,12 +160,12 @@ export default function Navbar() {
         display: none;
       }
       & #kid ${!isNavExpanded} {
-        width: 25px;
+        height: 25px;
         filter: invert(0);
       }
     `}
     & #kid ${isNavExpanded} {
-      width: 25px;
+      height: 25px;
       filter: invert(1);
       transition: filter 1s;
     }
