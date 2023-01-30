@@ -133,10 +133,11 @@ export default function Navbar() {
   `
 
   const ButtonStyles = styled.button`
+    margin-right: 1.5rem;
+    border-radius: 8px 8px;
+    border-style: hidden;
+    width: 2.5rem;
     ${props => props.className === "hamburger" && css`
-      margin-right: 1.4rem;
-      border-radius: 10px 10px;
-      border-style: hidden;
       transition: background 1s, color 1s;
       background: transparent;
       display: none;
@@ -149,23 +150,22 @@ export default function Navbar() {
       }
       @media screen and (max-width: 640px) and (orientation:portrait) {
         display: flex;
+        justify-content: center;
       }
     `}
     ${props => props.className === "clicked-hamburger" && css`
-      margin-right: 1.4rem;
-      border-radius: 10px 10px;
-      border-style: hidden;
       display: flex;
+      justify-content: center;
       @media screen and (min-width: 640px) and (orientation:portrait) {
         display: none;
       }
       & #kid ${!isNavExpanded} {
-        height: 25px;
+        height: 100%;
         filter: invert(0);
       }
     `}
     & #kid ${isNavExpanded} {
-      height: 25px;
+      height: 100%;
       filter: invert(1);
       transition: filter 1s;
     }
@@ -187,8 +187,7 @@ export default function Navbar() {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <img id="kid" src={require('../images/hamburger_black.png')} alt="hamburger-icon" />
-        </ButtonStyles>
+          <svg id="kid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>        </ButtonStyles>
         <NavLinks
           ref={ref}
           className={
