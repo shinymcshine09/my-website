@@ -41,9 +41,7 @@ export default function Navbar() {
   `
 
   const HoverStyle = css`
-    /* color: rgb(0, 0, 0); */
     filter: invert(1);
-    /* background: rgba(20, 20, 20, 0.6); */
     background: linear-gradient(45deg, rgba(55,55,55,0.6), rgba(22,22,22,0.6));
     padding: .5rem;
     border-radius: 2rem;
@@ -134,11 +132,9 @@ export default function Navbar() {
 
   const ButtonStyles = styled.button`
     ${props => props.className === "hamburger" && css`
-      padding-right: 2.5rem;
-      padding-bottom: 2.5rem;
       position: fixed;
       right: 3.55rem;
-      top: 2.8rem;
+      top: 2.95rem;
       border-radius: 10px 10px;
       border-style: hidden;
       transition: background 1s, color 1s;
@@ -152,35 +148,26 @@ export default function Navbar() {
         }
       }
       @media screen and (max-width: 640px) and (orientation:portrait) {
-        display: block;
+        display: flex;
       }
     `}
     ${props => props.className === "clicked-hamburger" && css`
-      padding-right: 2.5rem;
-      padding-bottom: 2.5rem;
       position: fixed;
       right: 3.55rem;
-      top: 2.8rem;
+      top: 2.95rem;
       border-radius: 10px 10px;
       border-style: hidden;
+      display: flex;
       @media screen and (min-width: 640px) and (orientation:portrait) {
         display: none;
       }
       & #kid ${!isNavExpanded} {
-        width: 2rem;
-        height: 2rem;
-        position: fixed;
-        right: 4rem;
-        top: 3.1rem;
+        width: 25px;
         filter: invert(0);
       }
     `}
     & #kid ${isNavExpanded} {
-      width: 2rem;
-      height: 2rem;
-      position: fixed;
-      right: 4rem;
-      top: 3.1rem;
+      width: 25px;
       filter: invert(1);
       transition: filter 1s;
     }
