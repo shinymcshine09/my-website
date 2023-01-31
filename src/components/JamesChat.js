@@ -12,13 +12,6 @@ import FadeLeft from "./csseffects/FadeLeft";
 import TypewriterEffect from "./typewritereffect/TypewriterEffect";
 import Caret from "./typewritereffect/Caret";
 
-/**
- * Handles the typed greeting on the homepage.
- * 
- * @param {Typing} param0 hands the styled component for the returned
- * element.
- * @returns the html element that produces the typewriter effect.
- */
 const ManageGreeting = ({Typing, TypingCC}) => {
     const location = useLocation();
     
@@ -79,7 +72,7 @@ const ManageGreeting = ({Typing, TypingCC}) => {
 }
 
 export default function JamesChat() {
-    const [ noHelper, setNoHelper ] = useState(false);
+    const [ noGuide, setGuide ] = useState(true);
 
     const PortraitContainer = styled.div`
         position: fixed;
@@ -93,14 +86,13 @@ export default function JamesChat() {
         // so i can scroll while hovering over this element
         height: 1px;
         margin-bottom: 15rem;
-        ${noHelper && css`
+        ${!noGuide && css`
             display: none;
         `}
         @media screen and (max-width: 550px) and (orientation:portrait){
             transform: scale(.7);
             // keeps james chat on the right hand side
             transform-origin: bottom right;
-            /* margin-right: 0rem; */
             margin-bottom: 11rem;
         }
     `
@@ -134,7 +126,6 @@ export default function JamesChat() {
     `
 
     const TypingContainer = styled.div`
-        width: fit-content;
         padding: 1rem;
         margin-left: 5px;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -144,8 +135,6 @@ export default function JamesChat() {
     const Typing = styled.div`
         font-size: 1rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        white-space: nowrap;
-        height: 1rem;
     `
 
     const CloseBubble = styled.button`
@@ -198,7 +187,7 @@ export default function JamesChat() {
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         animation: ${FadeLeft} 500ms linear forwards;
-        ${!noHelper && css`
+        ${noGuide && css`
             display: none;
         `}
         &:hover {
@@ -217,11 +206,11 @@ export default function JamesChat() {
                     <BubbleTwo/>
                 </SpeechBubble>
                 <Portrait src={portrait} alt='me'></Portrait>
-                <CloseBubble onClick={() => setNoHelper(!noHelper)}>
+                <CloseBubble onClick={() => setGuide(!noGuide)}>
                     <CrossIcon/>
                 </CloseBubble>
             </PortraitContainer>
-            <SideArrow onClick={() => setNoHelper(!noHelper)}>
+            <SideArrow onClick={() => setGuide(!noGuide)}>
                 <ChevronLeftIcon />
             </SideArrow>
         </div>

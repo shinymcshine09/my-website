@@ -98,15 +98,29 @@ const ProjectsPage = () => {
     `
 
     return (
-        <InView triggerOnce>
+        <InView 
+            triggerOnce
+        >
             {({ inView, ref }) => (
                 <ProjectsContent 
                 >
                     <div>
-                        <Heading location={location} ref={ref} inView={inView}>Projects</Heading>
+                        <Heading 
+                            location={location} 
+                            ref={ref} 
+                            inView={inView}
+                        >
+                            Projects
+                        </Heading>
                     </div>
-                    <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1}>
-                        <MouseParallaxChild factorX={0.1} factorY={0.1}>
+                    <MouseParallaxContainer 
+                        globalFactorX={0.1} 
+                        globalFactorY={0.1}
+                    >
+                        <MouseParallaxChild 
+                            factorX={0.1} 
+                            factorY={0.1}
+                        >
                             <Portfolio 
                                 ref={ref} 
                                 inView={inView}
@@ -118,7 +132,10 @@ const ProjectsPage = () => {
                                 >
                                     <Project>
                                         <ImageContainer>
-                                            <Image src={WebsiteIcon} alt="WebsiteIcon"/>
+                                            <Image 
+                                                src={WebsiteIcon} 
+                                                alt="WebsiteIcon"
+                                            />
                                         </ImageContainer>
                                         <ProjectTitle 
                                             id="project-id"
@@ -126,7 +143,9 @@ const ProjectsPage = () => {
                                             My Website Code
                                         </ProjectTitle>
                                         <DescriptionContainer>
-                                            <Description>This website's code, written in react by Me</Description>
+                                            <Description>
+                                                This website's code, written in react by Me
+                                            </Description>
                                         </DescriptionContainer>
                                         <br />
                                     </Project>
@@ -138,23 +157,47 @@ const ProjectsPage = () => {
                                 >
                                     <Project>
                                         <ImageContainer>
-                                            <Image src={SnakeIcon} alt="SnakeHead"/>
+                                            <Image 
+                                                src={SnakeIcon} 
+                                                alt="SnakeHead"
+                                            />
                                         </ImageContainer>
-                                        <ProjectTitle id="project-id">Java Snake Game</ProjectTitle>
+                                        <ProjectTitle 
+                                            id="project-id"
+                                        >
+                                            Java Snake Game
+                                        </ProjectTitle>
                                         <DescriptionContainer>
-                                            <Description>A version of Nokia's game Snake, written in Java</Description>
+                                            <Description>
+                                                A version of Nokia's game Snake, written in Java
+                                            </Description>
                                         </DescriptionContainer>
                                         <br />
                                     </Project>
                                 </Links>
-                                <Links href="https://github.com/shinymcshine09/Currency-Converter.git" target="_blank" rel="noopener noreferrer">
+                                <Links 
+                                    href="https://github.com/shinymcshine09/Currency-Converter.git" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
                                     <Project>
-                                        <ImageContainer id='kid'>
-                                            <Image src={CurrencyIcon} alt="CurrencyImg"/>
+                                        <ImageContainer 
+                                            id='kid'
+                                        >
+                                            <Image 
+                                                src={CurrencyIcon} 
+                                                alt="CurrencyImg"
+                                            />
                                         </ImageContainer>
-                                        <ProjectTitle id="project-id">Currency Converter</ProjectTitle>
+                                        <ProjectTitle 
+                                            id="project-id"
+                                        >
+                                            Currency Converter
+                                        </ProjectTitle>
                                         <DescriptionContainer>
-                                            <Description>A web scraper with a graphical user interface</Description>
+                                            <Description>
+                                                A web scraper with a graphical user interface
+                                            </Description>
                                         </DescriptionContainer>
                                         <br />
                                     </Project>

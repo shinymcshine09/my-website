@@ -45,7 +45,7 @@ const HomePage = () => {
                         James Hart
                 </NameHeading>
                 <Title>
-                        Aspiring Junior Web Developer
+                        Aspiring Web Developer
                 </Title>
             </MainHeadingContainer>
         </Body>

@@ -45,21 +45,39 @@ const Footer = () => {
         <Footer>
             <UnorderedList>
                 <ListItem>
-                    <Link to="/" exact>Home</Link>
+                    <Link 
+                        to="/" 
+                        exact
+                    >
+                        Home
+                    </Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/projects">Projects</Link>
+                    <Link 
+                        to="/projects"
+                    >
+                        Projects
+                    </Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/about">About</Link>
+                    <Link 
+                        to="/about"
+                    >
+                        About
+                    </Link>
                 </ListItem>
                 <ListItem>
-                    <Link to="/contact">Contact</Link>
+                    <Link 
+                        to="/contact"
+                    >
+                        Contact
+                    </Link>
                 </ListItem>
             </UnorderedList>
             <div>
-                <WebsiteInfo>Website created in React
-                 by James Hart</WebsiteInfo>
+                <WebsiteInfo>
+                    Website created in React by James Hart
+                </WebsiteInfo>
             </div>
         </Footer>
     )

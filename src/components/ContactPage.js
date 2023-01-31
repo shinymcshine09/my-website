@@ -72,8 +72,14 @@ export default function ContactPage() {
     const form = useRef();
     const location = useLocation();
     const [isFormSent, setIsFormSent ] = useState(false);
-    var greetings = ["Send me a message, if you wish", 'I would love to hear from you'];
-    var afterFormSentGreetings = ['Thanks for the message', 'I will get back to you asap'];
+    var greetings = [
+        "Send me a message, if you wish", 
+        'I would love to hear from you'
+    ];
+    var afterFormSentGreetings = [
+        'Thanks for the message', 
+        'I will get back to you asap'
+    ];
 
 
     const sendEmail = (e) => {
@@ -196,7 +202,9 @@ export default function ContactPage() {
 
     return (
         <Page>
-            <InView triggerOnce>
+            <InView 
+                triggerOnce
+            >
                 {({ inView, ref }) => (
                     <Content>
                         <div>
@@ -208,7 +216,10 @@ export default function ContactPage() {
                                 Contact Me
                             </Heading>
                         </div>
-                        <Typing ref={ref} inView={inView}>
+                        <Typing 
+                            ref={ref} 
+                            inView={inView}
+                        >
                             <TypewriterEffect 
                                 Greetings={greetings} 
                                 SecondGreetings={afterFormSentGreetings} 
@@ -218,14 +229,21 @@ export default function ContactPage() {
                             <Caret />
                         </Typing>
                         <br/>
-                        <FormContainer ref={ref} inView={inView}>
-                            <form ref={form} onSubmit={sendEmail}>
+                        <FormContainer 
+                            ref={ref} 
+                            inView={inView}
+                        >
+                            <form 
+                                ref={form} 
+                                onSubmit={sendEmail}
+                            >
                                 <FormInput 
                                     InputContainer={InputContainer} 
                                     Input={Input} 
                                     Label={Label}
                                     UserInput={UserInput} 
-                                    UserMessage={UserMessage}/>
+                                    UserMessage={UserMessage}
+                                />
                                 <SubmitButton 
                                     ref={ref} 
                                     inView={inView} 

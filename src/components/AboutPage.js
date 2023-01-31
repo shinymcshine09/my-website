@@ -140,17 +140,32 @@ const AboutPage = () => {
                     <List>
                         <SkillsHeading>Skills</SkillsHeading>
                         <ol>
-                            <ListItem>Java</ListItem>
-                            <ListItem>HTML/CSS/React</ListItem>
-                            <ListItem>Python</ListItem>
-                            <ListItem>CISCO Networking Essentials</ListItem>
-                            <ListItem>Linux</ListItem>
+                            <ListItem>
+                                Java
+                            </ListItem>
+                            <ListItem>
+                                HTML/CSS/React
+                            </ListItem>
+                            <ListItem>
+                                Python
+                            </ListItem>
+                            <ListItem>
+                                CISCO Networking Essentials
+                            </ListItem>
+                            <ListItem>
+                                Linux
+                            </ListItem>
                         </ol>
                     </List>
-                    <CV to={CVpdf} target="_blank download">
+                    <CV 
+                        to={CVpdf} 
+                        target="_blank download"
+                    >
                         <CVIcon />
                         <br />
-                        <CVText>My CV</CVText>
+                        <CVText>
+                            My CV
+                        </CVText>
                     </CV>
                 </SkillsCV>
             </Body>

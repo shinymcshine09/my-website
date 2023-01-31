@@ -179,7 +179,7 @@ export default function Navbar() {
         >
           <LinkItem>
             <NavLink 
-              onClick={() => { setIsNavExpanded(false);}} 
+              onClick={() => { setIsNavExpanded(false); }} 
               to="/" 
               exact 
               id="kid"
@@ -190,7 +190,7 @@ export default function Navbar() {
           </LinkItem>
           <LinkItem>
             <NavLink 
-              onClick={() => { setIsNavExpanded(false);}} 
+              onClick={() => { setIsNavExpanded(false) }} 
               to="/projects" 
               id="kid"
             >
@@ -200,7 +200,7 @@ export default function Navbar() {
           </LinkItem>
           <LinkItem>
             <NavLink 
-              onClick={() => { setIsNavExpanded(false);}} 
+              onClick={() => { setIsNavExpanded(false) }} 
               to="/about" 
               id="kid"
             >
@@ -210,7 +210,7 @@ export default function Navbar() {
           </LinkItem>
           <LinkItem>
             <NavLink 
-              onClick={() => { setIsNavExpanded(false);}} 
+              onClick={() => { setIsNavExpanded(false) }} 
               to="/contact" 
               id="kid"
             >
