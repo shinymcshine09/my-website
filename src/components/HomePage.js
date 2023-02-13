@@ -15,6 +15,7 @@ const HomePage = () => {
         opacity: 0;
         animation: ${FadeIn} 3s forwards;
         margin: auto;
+        padding-bottom: 10rem;
     `
 
     const NameFlicker = keyframes`
@@ -38,8 +39,7 @@ const HomePage = () => {
 
     const NameHeading = styled.div`
         color: white;
-        font-size: 8rem;
-        font-weight: 400;
+        font-weight: 150;
         margin-bottom: -5rem;
         display: flex;
         white-space: nowrap;
