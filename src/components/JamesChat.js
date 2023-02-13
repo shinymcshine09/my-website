@@ -75,25 +75,29 @@ export default function JamesChat() {
     const [ noGuide, setGuide ] = useState(true);
 
     const PortraitContainer = styled.div`
-        position: fixed;
-        bottom: 0;
+        position: absolute;
+        bottom: 14rem;
         right: 0;
         z-index: 3;
         display: flex;
+        justify-content: flex-end;
         opacity: 0;
         animation: ${FadeLeft} 1s linear forwards;
-        margin: 2rem;
         // so i can scroll while hovering over this element
         height: 1px;
-        margin-bottom: 15rem;
+
+        width: 100vw;
+        margin-right: 1rem;
         ${!noGuide && css`
             display: none;
         `}
-        @media screen and (max-width: 550px) and (orientation:portrait){
+        @media screen and (max-width: 550px) and (orientation:portrait) {
             transform: scale(.7);
+            // transform also scales width so:
+            width: 200vw;
             // keeps james chat on the right hand side
             transform-origin: bottom right;
-            margin-bottom: 11rem;
+            margin-bottom: -4rem;
         }
     `
 
@@ -113,26 +117,26 @@ export default function JamesChat() {
         border: 4px rgba(27,27,27,.7) solid;
         background-color: rgba(40,40,40,.7);
         border-radius: 50px;
-        margin-right: 4rem;
-        margin-top: -2rem;
-        width: 250px;
-        height: 40px;
+        margin-right: 1rem;
+        width: fit-content;
+        height: fit-content;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
 
     const TypingCC = styled.div`
         // puts caret after typing effect
         display: flex;
+
+        margin: auto;
     `
 
     const TypingContainer = styled.div`
         padding: 1rem;
-        margin-left: 5px;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        display: flex;
     `
 
     const Typing = styled.div`
+        white-space: nowrap;
         font-size: 1rem;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
@@ -157,7 +161,8 @@ export default function JamesChat() {
         border-radius: 50px;
         background-color: rgba(27,27,27,.5);
         width: 1px;
-        margin-left: 19rem;
+        margin-right: 1rem;
+        margin-top: 2rem;
         padding: 1rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
@@ -167,7 +172,8 @@ export default function JamesChat() {
         border-radius: 50px;
         background-color: rgba(27,27,27,.5);
         width: 1px;
-        margin-left: 21.5rem;
+        margin-right: 1rem;
+        margin-top: 4rem;
         padding: .5rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
@@ -202,9 +208,9 @@ export default function JamesChat() {
                     <TypingContainer>
                         <ManageGreeting Typing={Typing} TypingCC={TypingCC}/>
                     </TypingContainer>
-                    <BubbleOne/>
-                    <BubbleTwo/>
                 </SpeechBubble>
+                <BubbleOne/>
+                <BubbleTwo/>
                 <Portrait src={portrait} alt='me'></Portrait>
                 <CloseBubble onClick={() => setGuide(!noGuide)}>
                     <CrossIcon/>
