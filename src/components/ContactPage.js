@@ -139,7 +139,7 @@ export default function ContactPage() {
     const SubmitButton = styled.input`
         margin-top: 1rem;
         padding: 10px;
-        border-radius: 8px;
+        border-radius: 2rem;
         color: black;
         width: 6rem;
         border-style: none;

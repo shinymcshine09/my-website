@@ -39,12 +39,13 @@ export default function Navbar() {
   const NavBar = styled.ul`
     list-style-type: none;
     z-index: 2;
-    top: 1rem;
+    margin: 0;
+    top: 2rem;
     right: 2rem;
     left: 2rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.6);
-    border-radius: 30px / 30px;
+    border-radius:4rem;
     font-weight: bold;
     position: fixed;
     font-family: monospace;
@@ -54,8 +55,12 @@ export default function Navbar() {
   `
 
   const NavLinks = styled.div`
+    // keeps navlinks in center vertically when changing font
+    margin-top: auto;
+    margin-bottom: auto;
     ${props => props.className === "wide-nav" && css`
       margin-right: -1rem;
+      margin-left: auto;
       display: flex;
       justify-content: flex-end;
       padding-right: 15px;
@@ -119,6 +124,10 @@ export default function Navbar() {
   `
 
   const ButtonStyles = styled.button`
+    // keeps hamburger in center vertically when changing font
+    margin-top: auto;
+    margin-bottom: auto;
+    
     margin-right: .5rem;
     border-radius: 8px 8px;
     border-style: hidden;

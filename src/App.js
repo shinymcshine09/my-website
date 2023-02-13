@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import AboutPage from './components/AboutPage';
 
-
 function App() {
   return (
     <>
