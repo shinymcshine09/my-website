@@ -22,6 +22,16 @@ const Heading = styled.h1`
     ${p => p.location.pathname !== '/' && css`
         animation: ${FadeIn} 2s forwards;
     `}
+    text-shadow:
+        0 0 7px #ff9900,
+        0 0 10px #ff9900,
+        0 0 21px #ff9900,
+        0 0 42px #ff9900,
+        0 0 82px #ff9900,
+        0 0 92px #ff9900,
+        0 0 102px #ff9900,
+        0 0 151px #ff9900;
+    color: orange;
 `;
 
 export default Heading;

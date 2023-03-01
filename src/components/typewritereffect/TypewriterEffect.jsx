@@ -43,9 +43,7 @@ export default function TypewriterEffect({Greetings, SecondGreetings, ContainerS
 
     return (
         <ContainerStyle>
-            <div>
-                <text>{output}</text>
-            </div>
+            <text>{output}</text>
         </ContainerStyle>
     )
 }

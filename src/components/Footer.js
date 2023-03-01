@@ -12,7 +12,7 @@ const Footer = () => {
     const Footer = styled.footer`
         background-color: rgb(49, 49, 49);
         width: 100vw;  
-        position: sticky;
+        position: absolute;
     `
 
     const WebsiteInfo = styled.p`

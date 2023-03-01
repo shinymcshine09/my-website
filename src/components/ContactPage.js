@@ -102,11 +102,14 @@ export default function ContactPage() {
         background-color: rgb(49, 49, 49);
         text-align: center;
         width: 100vw;
-        height: 100vh;
+        ${location.pathname !== '/' && css`
+            height: 100vh;
+            min-height: fit-content;
+        `}
     `
 
     const Content = styled.div`
-        height: 100vh;
+        padding-bottom: 5rem;
     `
 
     const Typing = styled.div`
@@ -134,6 +137,8 @@ export default function ContactPage() {
         ${location.pathname !== '/' && css`
             animation: ${FadeIn} 2s forwards;
         `}
+        display: flex;
+        justify-content: center;
     `
 
     const SubmitButton = styled.input`
@@ -166,17 +171,14 @@ export default function ContactPage() {
     const InputContainer = styled.div`
         display: grid;
         grid-template-columns: 1fr 10fr;
-        width: 60%;
-        margin-left: 20%;
-        margin-right: 20%;
-        justify-content: center;
+        width: 100%;
+        max-width: 500px;
         align-items: center;
     `
 
     const Label = styled.label`
+        text-align: right;
         margin-top: 1rem;
-        width: 100%;
-        text-align: left;
     `
 
     const Input = styled.div`

@@ -19,8 +19,11 @@ const ProjectsPage = () => {
     const ProjectsContent = styled.div`
         text-align: center;
         background-color: rgb(49, 49, 49);
-        height: 100vh;
         width: 100vw;
+        ${location.pathname !== '/' && css`
+            height: 100vh;
+            min-height: fit-content;
+        `}
     `
 
     const Portfolio = styled.div`
@@ -37,6 +40,7 @@ const ProjectsPage = () => {
         @media screen and (max-width: 569px) and (orientation:portrait){
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
         ${p => p.inView && location.pathname === '/' && css`
             animation: ${FadeUp} 2s forwards;
@@ -47,29 +51,38 @@ const ProjectsPage = () => {
     `
 
     const ImageContainer = styled.div`
-        margin: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: 100%;
     `
 
     const Image = styled.img`
-        width: 100%;
-        height: 100%;
+        width: 70%;
         &:hover {
             filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.50));
+        }
+        &#icon {
+            width: 50%;
+            padding: 10%;
         }
     `
 
     const Project = styled.div`
         background-color: rgb(49, 49, 49);
-        border: 5px solid rgb(36, 36, 36);
+        border: 2px solid rgb(36, 36, 36);
         border-radius: 1.5rem;
         max-width: 26rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         transition: all 1s;
         &:hover {
-            border: 5px solid rgb(27, 27, 27);
+            border: 2px solid rgb(27, 27, 27);
             background-color: rgb(37, 37, 37);
             animation: ${LittleWiggle} 0.3s infinite;
         }
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     `
 
     const Links = styled.a`
@@ -135,6 +148,7 @@ const ProjectsPage = () => {
                                             <Image 
                                                 src={WebsiteIcon} 
                                                 alt="WebsiteIcon"
+                                                id='icon'
                                             />
                                         </ImageContainer>
                                         <ProjectTitle 
@@ -187,6 +201,7 @@ const ProjectsPage = () => {
                                             <Image 
                                                 src={CurrencyIcon} 
                                                 alt="CurrencyImg"
+                                                id='icon'
                                             />
                                         </ImageContainer>
                                         <ProjectTitle 

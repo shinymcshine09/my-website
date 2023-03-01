@@ -11,16 +11,26 @@ import AboutBackground from "../images/IMG_0634.jpeg";
 
 const Home = () => {
     const Section = css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
         scroll-snap-align: start;
+        @media screen and (max-width: 800px) and (orientation:landscape){
+            scroll-snap-align: none;
+            height: fit-content;
+        }
     `
 
     const Container = styled.div`
         scroll-snap-type: y mandatory;
         overflow-y: scroll;
+        //hides scrollbar on homepage
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        @media screen and (max-width: 800px) and (orientation:landscape){
+            height: fit-content;
+            scroll-snap-type: none;
+            overflow-y: none;
+        }
         height: 100vh;
         padding: 0;
         margin: 0;
@@ -32,7 +42,6 @@ const Home = () => {
         background-size:cover;
         background-repeat: no-repeat;
         text-align: center;
-        width: 100%;
         color: white;
         background-color: rgb(49, 49, 49);
         background-image: linear-gradient(transparent, rgb(66, 65, 65)), url(${HomeBackground});

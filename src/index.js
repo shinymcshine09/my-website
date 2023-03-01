@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: monospace;
     color:rgb(239, 239, 239);
+    /* -webkit-scrollbar-width: thin; */
   }
 `
 

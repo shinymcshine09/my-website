@@ -5,7 +5,6 @@ export default function AboutIcon() {
     const Icon = styled.svg`
         width: 10px;
         margin-right: 4px;
-        margin-bottom: px;
         filter: invert(1);
     `
 

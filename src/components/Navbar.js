@@ -120,6 +120,17 @@ export default function Navbar() {
     margin-left: .5rem;
     font-size: 1.1rem;
     padding: .5rem;
+    & #kid {
+      text-decoration: none;
+      color: orange;
+    }
+    &:visited {
+      color: orange;
+    }
+    text-shadow:
+        0 0 7px #ff9900,
+        0 0 10px #ff9900,
+        0 0 21px #ff9900;
     color: orange;
   `
 
@@ -168,7 +179,13 @@ export default function Navbar() {
     <nav>
       <NavBar> 
         <MyName>
-          James Hart
+          <NavLink
+            id="kid"
+            to="/"
+            exact
+          >
+            James Hart
+          </NavLink>
         </MyName>
         <ButtonStyles 
           className={

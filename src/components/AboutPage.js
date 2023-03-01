@@ -22,16 +22,19 @@ const AboutPage = () => {
         background-image: linear-gradient(rgba(67, 67, 67, 0.7), rgba(67, 67, 67, 0.7)), url(${img});
         background-size:cover;
         background-repeat: no-repeat;
-        height: 90%;
         text-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
         width: 100vw;
-        height: 100vh;
+        padding-bottom: 3rem;
+        ${location.pathname !== '/' && css`
+            height: 100vh;
+            min-height: fit-content;
+        `}
     `
 
     const Body = styled.body`
         margin-left: 15%;
         margin-right: 15%;
-        height: 70%;
+        /* height: 70%; */
         opacity: 0;
         ${p => p.inView && location.pathname === '/' && css`
             animation: ${FadeUp} 2s forwards;
@@ -55,7 +58,6 @@ const AboutPage = () => {
         padding-right: 2rem;
         border-radius: 20px;
         margin-bottom: 2rem;
-        text-indent: 2.5rem;
         line-height: 1.8rem;
         font-weight: bold;
     `
@@ -64,6 +66,7 @@ const AboutPage = () => {
         display:grid;
         grid-template-columns: 3fr 1fr;
         grid-gap: 2rem;
+        padding-bottom: 3rem;
     `
 
     const List = styled.div`
@@ -111,66 +114,69 @@ const AboutPage = () => {
     return (
         <InView triggerOnce>
             {({ inView, ref }) => (
-        <Content>
-            <div>
-                <Heading 
-                    location={location} 
-                    ref={ref} 
-                    inView={inView}
-                >
-                    About Me
-                </Heading>
-            </div>
-            <Body ref={ref} inView={inView}>
-                <Paragraph>
-                    <p>
-                        I am an Open University student currently studying Computer Science part time looking to 
-                        get a job as a Web Developer. I am looking for a Junior position to help me grow 
-                        my skills as a developer through learning from others.
-                    </p>
-                    <p>
-                        When not studying for University, I code a lot as it has 
-                        become sort of a hobby of mine. One of the things I 
-                        have been coding is this website, amongst other things. This is to showcase some of the 
-                        skills I have and hope to build on in a future job. If you want to know more
-                        about me, check out my CV below.
-                    </p> 
-                </Paragraph>
-                <SkillsCV>
-                    <List>
-                        <SkillsHeading>Skills</SkillsHeading>
-                        <ol>
-                            <ListItem>
-                                Java
-                            </ListItem>
-                            <ListItem>
-                                HTML/CSS/React
-                            </ListItem>
-                            <ListItem>
-                                Python
-                            </ListItem>
-                            <ListItem>
-                                CISCO Networking Essentials
-                            </ListItem>
-                            <ListItem>
-                                Linux
-                            </ListItem>
-                        </ol>
-                    </List>
-                    <CV 
-                        to={CVpdf} 
-                        target="_blank download"
-                    >
-                        <CVIcon />
-                        <br />
-                        <CVText>
-                            My CV
-                        </CVText>
-                    </CV>
-                </SkillsCV>
-            </Body>
-        </Content>
-        )}
+                <Content>
+                    <div>
+                        <Heading 
+                            location={location} 
+                            ref={ref} 
+                            inView={inView}
+                        >
+                            About Me
+                        </Heading>
+                    </div>
+                    <Body ref={ref} inView={inView}>
+                        <Paragraph>
+                            <p>
+                                I am an Open University student currently studying 
+                                Computer Science part time looking to get a job as 
+                                a Web Developer. I am looking for a Junior position 
+                                to help me grow my skills as a developer through 
+                                learning from others.
+                            </p>
+                            <p>
+                                When not studying for University, I code a lot as it has 
+                                become sort of a hobby of mine. One of the things I have 
+                                been coding is this website, amongst other things. This 
+                                is to showcase some of the skills I hope to build on in 
+                                a future job. If you want to know more about me, check 
+                                out my CV below.
+                            </p> 
+                        </Paragraph>
+                        <SkillsCV>
+                            <List>
+                                <SkillsHeading>Skills</SkillsHeading>
+                                <ol>
+                                    <ListItem>
+                                        Java
+                                    </ListItem>
+                                    <ListItem>
+                                        HTML/CSS/React
+                                    </ListItem>
+                                    <ListItem>
+                                        Python
+                                    </ListItem>
+                                    <ListItem>
+                                        CISCO Networking Essentials
+                                    </ListItem>
+                                    <ListItem>
+                                        Linux
+                                    </ListItem>
+                                </ol>
+                            </List>
+                            <CV 
+                                to={CVpdf} 
+                                target="_blank download"
+                            >
+                                <CVIcon />
+                                <br />
+                                <CVText>
+                                    My CV
+                                </CVText>
+                            </CV>
+                        </SkillsCV>
+                    </Body>
+                </Content>
+            )}
         </InView>
     )
 }

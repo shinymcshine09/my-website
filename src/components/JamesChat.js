@@ -29,7 +29,7 @@ const ManageGreeting = ({Typing, TypingCC}) => {
         ],
         [
             'These are my projects',
-            'Please have a look',
+            'Have a nice gander',
             "The website's good :-)",
             'The snake game is fun'
         ],
@@ -75,7 +75,7 @@ export default function JamesChat() {
     const [ noGuide, setGuide ] = useState(true);
 
     const PortraitContainer = styled.div`
-        position: absolute;
+        position: fixed;
         bottom: 14rem;
         right: 0;
         z-index: 3;
@@ -118,13 +118,14 @@ export default function JamesChat() {
         background-color: rgba(40,40,40,.7);
         border-radius: 50px;
         margin-right: 1rem;
+        margin-top: -1rem;
         width: fit-content;
         height: fit-content;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
 
     const TypingCC = styled.div`
-        // puts caret after typing effect
+        // puts caret after typing effect instead of below
         display: flex;
 
         margin: auto;
@@ -173,7 +174,7 @@ export default function JamesChat() {
         background-color: rgba(27,27,27,.5);
         width: 1px;
         margin-right: 1rem;
-        margin-top: 4rem;
+        margin-top: 4.5rem;
         padding: .5rem;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     `
