@@ -171,9 +171,9 @@ export default function ContactPage() {
     const InputContainer = styled.div`
         display: grid;
         grid-template-columns: 1fr 10fr;
-        width: 100%;
-        max-width: 500px;
+        max-width: 600px;
         align-items: center;
+        margin: 1rem;
     `
 
     const Label = styled.label`
